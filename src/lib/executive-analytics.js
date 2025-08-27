@@ -376,7 +376,7 @@ export const initializeExecutiveAnalytics = () => {
   return journeyTracker;
 };
 
-export default {
+const ExecutiveAnalytics = {
   trackExecutiveEvent,
   trackExecutiveEngagement,
   ExecutiveJourneyTracker,
@@ -385,3 +385,5 @@ export default {
   trackExecutiveExperiment,
   initializeExecutiveAnalytics
 };
+
+export default ExecutiveAnalytics;

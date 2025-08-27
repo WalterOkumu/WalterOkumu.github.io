@@ -1,0 +1,227 @@
+{
+  "timestamp": "2025-08-27T06:37:29.334Z",
+  "viewport": {
+    "desktop": {
+      "width": 1200,
+      "height": 800
+    },
+    "mobile": {
+      "width": 375,
+      "height": 667
+    }
+  },
+  "navbar": {
+    "desktop": {
+      "rect": {
+        "width": 1200,
+        "height": 0,
+        "top": 0,
+        "left": 0
+      },
+      "styles": {
+        "position": "static",
+        "zIndex": "auto",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "flexDirection": "row",
+        "justifyContent": "normal",
+        "alignItems": "normal"
+      },
+      "links": [
+        {
+          "text": "WOWalter OkumuTechnology Executive",
+          "href": "http://localhost:3000/",
+          "visible": true,
+          "rect": {}
+        },
+        {
+          "text": "Home",
+          "href": "http://localhost:3000/",
+          "visible": false,
+          "rect": {}
+        },
+        {
+          "text": "About7 Countries",
+          "href": "http://localhost:3000/about/",
+          "visible": false,
+          "rect": {}
+        },
+        {
+          "text": "Projects12 Team Members",
+          "href": "http://localhost:3000/projects/",
+          "visible": false,
+          "rect": {}
+        },
+        {
+          "text": "Skills40% Growth",
+          "href": "http://localhost:3000/skills/",
+          "visible": false,
+          "rect": {}
+        },
+        {
+          "text": "ContactAvailable",
+          "href": "http://localhost:3000/contact/",
+          "visible": false,
+          "rect": {}
+        },
+        {
+          "text": "Get in Touch",
+          "href": "http://localhost:3000/contact/",
+          "visible": false,
+          "rect": {}
+        }
+      ],
+      "mobileMenu": {
+        "hasButton": true,
+        "hasMenu": false,
+        "buttonVisible": true
+      },
+      "classList": [
+        "w-full"
+      ],
+      "innerHTML": 8685
+    },
+    "mobile": {
+      "rect": {
+        "width": 375,
+        "height": 0
+      },
+      "mobileMenuButton": {
+        "exists": true,
+        "visible": true,
+        "text": ""
+      },
+      "mobileMenu": {
+        "exists": false,
+        "visible": false
+      }
+    }
+  },
+  "footer": {
+    "desktop": {
+      "rect": {
+        "width": 1200,
+        "height": 578.59375,
+        "top": 3580.703125,
+        "left": 0
+      },
+      "styles": {
+        "position": "relative",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "display": "block",
+        "padding": "0px",
+        "margin": "0px"
+      },
+      "links": [
+        {
+          "text": "LinkedIn: Professional profile and networkLinkedIn professional profile",
+          "href": "https://linkedin.com/in/walter-okumu",
+          "visible": true,
+          "rect": {}
+        },
+        {
+          "text": "GitHub: Technical projects and contributionsGitHub technical projects and contributions",
+          "href": "https://github.com/walterokumu",
+          "visible": true,
+          "rect": {}
+        },
+        {
+          "text": "About",
+          "href": "http://localhost:3000/about",
+          "visible": true,
+          "rect": {}
+        },
+        {
+          "text": "Projects",
+          "href": "http://localhost:3000/projects",
+          "visible": true,
+          "rect": {}
+        },
+        {
+          "text": "Skills",
+          "href": "http://localhost:3000/skills",
+          "visible": true,
+          "rect": {}
+        },
+        {
+          "text": "Contact",
+          "href": "http://localhost:3000/contact",
+          "visible": true,
+          "rect": {}
+        },
+        {
+          "text": "Blog",
+          "href": "http://localhost:3000/blog",
+          "visible": true,
+          "rect": {}
+        },
+        {
+          "text": "Speaking",
+          "href": "http://localhost:3000/speaking",
+          "visible": true,
+          "rect": {}
+        },
+        {
+          "text": "Privacy",
+          "href": "http://localhost:3000/privacy",
+          "visible": true,
+          "rect": {}
+        },
+        {
+          "text": "Terms",
+          "href": "http://localhost:3000/terms",
+          "visible": true,
+          "rect": {}
+        }
+      ],
+      "sections": [
+        {
+          "classes": [
+            "footer-content"
+          ],
+          "textContent": "WOWalter Okumu OriaroHead of Customer Success & Technical ArchitectureTechnology executive leading c...",
+          "hasLinks": true
+        },
+        {
+          "classes": [
+            "footer-grid"
+          ],
+          "textContent": "WOWalter Okumu OriaroHead of Customer Success & Technical ArchitectureTechnology executive leading c...",
+          "hasLinks": true
+        },
+        {
+          "classes": [
+            "space-y-4"
+          ],
+          "textContent": "WOWalter Okumu OriaroHead of Customer Success & Technical ArchitectureTechnology executive leading c...",
+          "hasLinks": true
+        },
+        {
+          "classes": [
+            "footer-brand"
+          ],
+          "textContent": "WOWalter Okumu OriaroHead of Customer Success & Technical Architecture...",
+          "hasLinks": false
+        },
+        {
+          "classes": [
+            "footer-logo"
+          ],
+          "textContent": "WO...",
+          "hasLinks": false
+        }
+      ],
+      "classList": [
+        "footer"
+      ],
+      "innerHTML": 5187
+    }
+  },
+  "screenshots": [
+    "full-page.png",
+    "navbar-desktop.png",
+    "footer-desktop.png",
+    "mobile-full.png",
+    "navbar-mobile.png"
+  ]
+}

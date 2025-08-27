@@ -602,6 +602,68 @@ body {
 /* ===================================================================
    ENHANCED NAVIGATION SYSTEM - International Standards
    =================================================================== */
+
+/* Desktop Navigation Visibility - Fixed for Tailwind 4 Compatibility */
+.desktop-navigation {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .desktop-navigation {
+    display: flex !important;
+  }
+}
+
+/* Executive Navbar Enhancements - Fixing 0px Height Issue */
+nav[role="navigation"] {
+  min-height: 64px !important;
+  height: 64px;
+}
+
+@media (min-width: 640px) {
+  nav[role="navigation"] {
+    min-height: 72px !important;
+    height: 72px;
+  }
+}
+
+@media (min-width: 1024px) {
+  nav[role="navigation"] {
+    min-height: 80px !important;
+    height: 80px;
+  }
+}
+
+/* Mobile Menu Panel - Enhanced Positioning */
+.mobile-menu {
+  position: fixed !important;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 100%;
+  max-width: 380px;
+  z-index: 1001;
+}
+
+/* Skip Link Accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #000;
+  color: #fff;
+  padding: 8px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: top 0.3s;
+  z-index: 2000;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* Legacy Navigation Styles - Backup Support */
 .nav-container {
   position: sticky;
   top: 0;
@@ -610,6 +672,7 @@ body {
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--neutral-200);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 80px;
 }
 
 .dark .nav-container {
@@ -1127,11 +1190,127 @@ body {
   }
 }
 
+/* ===================================================================
+   ENHANCED FOOTER SYSTEM - Executive Presentation
+   =================================================================== */
+.footer {
+  background: linear-gradient(135deg, var(--neutral-900), var(--neutral-800));
+  border-top: 1px solid var(--neutral-700);
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--primary-500), transparent);
+  opacity: 0.6;
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--space-12) var(--space-6) var(--space-8);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-10);
+  margin-bottom: var(--space-10);
+}
+
+@media (min-width: 640px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8);
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: var(--space-12);
+  }
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.footer-logo {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--primary-600), var(--primary-700));
+  border-radius: var(--radius-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: var(--font-size-lg);
+  box-shadow: var(--shadow-lg);
+  flex-shrink: 0;
+}
+
+.footer-section {
+  font-weight: 600;
+  font-size: var(--font-size-base);
+  color: white;
+  margin-bottom: var(--space-4);
+  letter-spacing: -0.025em;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-links a {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 400;
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+}
+
+.footer-links a:hover {
+  color: var(--primary-400) !important;
+  transform: translateX(4px);
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--neutral-700);
+}
+
+@media (min-width: 768px) {
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
 /* Enhanced Print Styles */
 @media print {
   .nav-container,
   .mobile-menu-button,
-  .theme-toggle {
+  .theme-toggle,
+  .footer {
     display: none !important;
   }
 

@@ -1,0 +1,321 @@
+{
+  "timestamp": "2025-08-27T06:57:38.389Z",
+  "testResults": {
+    "desktop": {
+      "navbar": {
+        "rect": {
+          "width": 98,
+          "height": 80,
+          "top": 0,
+          "visible": true
+        },
+        "styles": {
+          "position": "fixed",
+          "zIndex": "1000",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "display": "block",
+          "minHeight": "80px"
+        },
+        "links": [
+          {
+            "text": "WOWalter OkumuChief AI Officer & Technology Executive",
+            "href": "http://localhost:3002/",
+            "visible": true,
+            "width": 28,
+            "height": 26,
+            "rect": {}
+          },
+          {
+            "text": "Home",
+            "href": "http://localhost:3002/",
+            "visible": false,
+            "width": 0,
+            "height": 0,
+            "rect": {}
+          },
+          {
+            "text": "About7 Countries",
+            "href": "http://localhost:3002/about/",
+            "visible": false,
+            "width": 0,
+            "height": 0,
+            "rect": {}
+          },
+          {
+            "text": "Projects12 Team Members",
+            "href": "http://localhost:3002/projects/",
+            "visible": false,
+            "width": 0,
+            "height": 0,
+            "rect": {}
+          },
+          {
+            "text": "Skills40% Growth",
+            "href": "http://localhost:3002/skills/",
+            "visible": false,
+            "width": 0,
+            "height": 0,
+            "rect": {}
+          },
+          {
+            "text": "ContactAvailable",
+            "href": "http://localhost:3002/contact/",
+            "visible": false,
+            "width": 0,
+            "height": 0,
+            "rect": {}
+          },
+          {
+            "text": "Get in Touch",
+            "href": "http://localhost:3002/contact/",
+            "visible": false,
+            "width": 0,
+            "height": 0,
+            "rect": {}
+          }
+        ],
+        "mobileMenuButton": {
+          "exists": true,
+          "visible": true,
+          "ariaExpanded": "false"
+        },
+        "innerHTML": 9033
+      },
+      "status": "PASS"
+    },
+    "mobile": {
+      "navbar": {
+        "rect": {
+          "width": 98,
+          "height": 80,
+          "visible": true
+        },
+        "mobileMenuButton": {
+          "exists": true,
+          "visible": true,
+          "text": "",
+          "ariaExpanded": "false"
+        }
+      },
+      "menuFunctional": false,
+      "status": "PARTIAL"
+    },
+    "accessibility": {
+      "contrastElements": [
+        {
+          "element": "a",
+          "text": "WOWalter OkumuChief ",
+          "color": "rgb(0, 0, 238)",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "fontSize": "16px",
+          "fontWeight": "400"
+        },
+        {
+          "element": "a",
+          "text": "Home",
+          "color": "rgb(0, 0, 238)",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "fontSize": "16px",
+          "fontWeight": "400"
+        },
+        {
+          "element": "a",
+          "text": "About7 Countries",
+          "color": "rgb(0, 0, 238)",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "fontSize": "16px",
+          "fontWeight": "400"
+        },
+        {
+          "element": "a",
+          "text": "Projects12 Team Memb",
+          "color": "rgb(0, 0, 238)",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "fontSize": "16px",
+          "fontWeight": "400"
+        },
+        {
+          "element": "a",
+          "text": "Skills40% Growth",
+          "color": "rgb(0, 0, 238)",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "fontSize": "16px",
+          "fontWeight": "400"
+        },
+        {
+          "element": "a",
+          "text": "ContactAvailable",
+          "color": "rgb(0, 0, 238)",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "fontSize": "16px",
+          "fontWeight": "400"
+        },
+        {
+          "element": "button",
+          "text": "",
+          "color": "rgb(0, 0, 0)",
+          "backgroundColor": "rgb(240, 240, 240)",
+          "fontSize": "13.3333px",
+          "fontWeight": "400"
+        },
+        {
+          "element": "a",
+          "text": "Get in Touch",
+          "color": "rgb(0, 0, 238)",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "fontSize": "16px",
+          "fontWeight": "400"
+        },
+        {
+          "element": "button",
+          "text": "",
+          "color": "rgb(0, 0, 0)",
+          "backgroundColor": "rgb(240, 240, 240)",
+          "fontSize": "13.3333px",
+          "fontWeight": "400"
+        },
+        {
+          "element": "button",
+          "text": "",
+          "color": "rgb(0, 0, 0)",
+          "backgroundColor": "rgb(240, 240, 240)",
+          "fontSize": "13.3333px",
+          "fontWeight": "400"
+        },
+        {
+          "element": "a",
+          "text": "HomeExecutive overvi",
+          "color": "rgb(0, 0, 238)",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "fontSize": "16px",
+          "fontWeight": "400"
+        },
+        {
+          "element": "a",
+          "text": "AboutLeadership expe",
+          "color": "rgb(0, 0, 238)",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "fontSize": "16px",
+          "fontWeight": "400"
+        },
+        {
+          "element": "a",
+          "text": "ProjectsTechnical po",
+          "color": "rgb(0, 0, 238)",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "fontSize": "16px",
+          "fontWeight": "400"
+        },
+        {
+          "element": "a",
+          "text": "SkillsTechnical and ",
+          "color": "rgb(0, 0, 238)",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "fontSize": "16px",
+          "fontWeight": "400"
+        },
+        {
+          "element": "a",
+          "text": "ContactExecutive con",
+          "color": "rgb(0, 0, 238)",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "fontSize": "16px",
+          "fontWeight": "400"
+        },
+        {
+          "element": "button",
+          "text": "Theme",
+          "color": "rgb(0, 0, 0)",
+          "backgroundColor": "rgb(240, 240, 240)",
+          "fontSize": "13.3333px",
+          "fontWeight": "400"
+        },
+        {
+          "element": "a",
+          "text": "Get in Touch",
+          "color": "rgb(0, 0, 238)",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "fontSize": "16px",
+          "fontWeight": "400"
+        },
+        {
+          "element": "a",
+          "text": "About",
+          "color": "rgb(0, 0, 238)",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "fontSize": "14px",
+          "fontWeight": "400"
+        },
+        {
+          "element": "a",
+          "text": "Projects",
+          "color": "rgb(0, 0, 238)",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "fontSize": "14px",
+          "fontWeight": "400"
+        },
+        {
+          "element": "a",
+          "text": "Skills",
+          "color": "rgb(0, 0, 238)",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "fontSize": "14px",
+          "fontWeight": "400"
+        },
+        {
+          "element": "a",
+          "text": "Contact",
+          "color": "rgb(0, 0, 238)",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "fontSize": "14px",
+          "fontWeight": "400"
+        },
+        {
+          "element": "a",
+          "text": "Blog",
+          "color": "rgb(0, 0, 238)",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "fontSize": "14px",
+          "fontWeight": "400"
+        },
+        {
+          "element": "a",
+          "text": "Speaking",
+          "color": "rgb(0, 0, 238)",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "fontSize": "14px",
+          "fontWeight": "400"
+        },
+        {
+          "element": "a",
+          "text": "Privacy",
+          "color": "rgb(0, 0, 238)",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "fontSize": "14px",
+          "fontWeight": "400"
+        },
+        {
+          "element": "a",
+          "text": "Terms",
+          "color": "rgb(0, 0, 238)",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "fontSize": "14px",
+          "fontWeight": "400"
+        }
+      ],
+      "keyboardNavigation": {
+        "tag": "A",
+        "href": "http://localhost:3002/",
+        "text": "HomeExecutive overview and impact metrics",
+        "hasFocus": true
+      },
+      "status": "TESTED"
+    }
+  },
+  "summary": {
+    "overallStatus": "NEEDS_FIXES",
+    "criticalIssues": [
+      "Mobile menu not functional"
+    ]
+  }
+}

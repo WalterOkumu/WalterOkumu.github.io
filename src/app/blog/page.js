@@ -1,5 +1,5 @@
 import Layout from '@/components/ui/Layout';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, MetricCard } from '@/components/ui/Card';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import Badge from '@/components/ui/Badge';
 import { Clock, Users, BookOpen, TrendingUp, FileText, Calendar, ArrowRight } from 'lucide-react';
@@ -211,12 +211,12 @@ export default function Blog() {
             <div className="space-y-6">
               <div className="grid grid-cols-2 gap-4">
                 {blogMetrics.map((metric, index) => (
-                  <MetricCard key={index} className="card-metric">
+                  <Card key={index} className="card-metric text-center p-4">
                     <div className="text-2xl mb-2">{metric.icon}</div>
-                    <div className="metric-value text-2xl">{metric.value}</div>
-                    <div className="metric-label text-xs">{metric.label}</div>
-                    <div className="metric-description text-xs">{metric.description}</div>
-                  </MetricCard>
+                    <div className="metric-value text-2xl font-bold text-primary">{metric.value}</div>
+                    <div className="metric-label text-xs font-medium text-color-neutral-700">{metric.label}</div>
+                    <div className="metric-description text-xs text-color-neutral-600">{metric.description}</div>
+                  </Card>
                 ))}
               </div>
             </div>

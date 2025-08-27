@@ -208,7 +208,7 @@ export const validateSanitizedData = (data) => {
   };
 };
 
-export default {
+const SanitizationUtils = {
   sanitizeText,
   sanitizeEmail,
   sanitizeMessage,
@@ -217,3 +217,5 @@ export default {
   sanitizeFormData,
   validateSanitizedData
 };
+
+export default SanitizationUtils;
