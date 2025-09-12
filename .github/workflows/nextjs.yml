@@ -73,8 +73,16 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+      - name: Audit dependencies (high severity)
+        run: npm audit --audit-level=high || true
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
+      - name: Install Playwright Browsers
+        run: npx --yes playwright install --with-deps
+      - name: Run E2E tests (Playwright)
+        run: npx --yes playwright test
+      - name: Run Lighthouse CI
+        run: npx --yes @lhci/cli@0.13.x autorun --config=./lighthouserc.json
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

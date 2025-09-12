@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 import { ENV, logEnvironmentStatus } from "@/lib/env";
+import ConsentAndAnalytics from "@/components/ui/ConsentAndAnalytics";
 
 // Inter font configuration as per design specification
 const inter = Inter({
@@ -245,8 +246,6 @@ export const viewport = {
 };
 
 export default function RootLayout({ children }) {
-  const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
-  const YANDEX_METRICA_ID = process.env.NEXT_PUBLIC_YANDEX_METRICA_ID;
 
   return (
     <html lang="en" className={inter.variable}>
@@ -292,6 +291,14 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
+
+        {/* Basic CSP for static export (adjust as needed) */}
+        <meta
+          httpEquiv="Content-Security-Policy"
+          content={
+            "default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' https://www.googletagmanager.com https://mc.yandex.ru 'unsafe-inline'; connect-src 'self' https://www.google-analytics.com https://mc.yandex.ru; frame-ancestors 'self'; base-uri 'self'; form-action 'self'"
+          }
+        />
       </head>
 
       <body className="font-sans antialiased bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
@@ -312,155 +319,7 @@ export default function RootLayout({ children }) {
           }}
         />
         {children}
-
-        {/* Google Analytics 4 */}
-        {GA_ID && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-              strategy="afterInteractive"
-            />
-            <Script id="google-analytics" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${GA_ID}', {
-                  page_title: document.title,
-                  page_location: window.location.href,
-                  custom_map: {
-                    'custom_parameter_1': 'executive_portfolio',
-                    'custom_parameter_2': 'technology_leader'
-                  }
-                });
-
-                // Enhanced ecommerce for goal tracking
-                gtag('config', '${GA_ID}', {
-                  custom_map: {
-                    'contact_form_submit': 'contact_conversion',
-                    'document_download': 'document_conversion',
-                    'project_view': 'engagement_metric'
-                  }
-                });
-              `}
-            </Script>
-          </>
-        )}
-
-        {/* Yandex Metrica */}
-        {YANDEX_METRICA_ID && (
-          <Script id="yandex-metrica" strategy="afterInteractive">
-            {`
-              (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-              m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-              (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-              ym(${YANDEX_METRICA_ID}, "init", {
-                clickmap:true,
-                trackLinks:true,
-                accurateTrackBounce:true,
-                webvisor:true,
-                trackHash:true,
-                ecommerce:"dataLayer"
-              });
-            `}
-          </Script>
-        )}
-
-        {/* Yandex Metrica NoScript */}
-        {YANDEX_METRICA_ID && (
-          <noscript>
-            <div>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={`https://mc.yandex.ru/watch/${YANDEX_METRICA_ID}`}
-                style={{position:'absolute', left:'-9999px', width: '1px', height: '1px'}}
-                alt=""
-                aria-hidden="true"
-              />
-            </div>
-          </noscript>
-        )}
-
-                {/* Performance and SEO optimizations */}
-        <Script id="performance-optimizations" strategy="afterInteractive">
-          {`
-            // Critical Web Vitals tracking
-            function sendToAnalytics(metric) {
-              if (typeof gtag !== 'undefined') {
-                gtag('event', metric.name, {
-                  value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value),
-                  event_category: 'Web Vitals',
-                  event_label: metric.id,
-                  non_interaction: true,
-                });
-              }
-
-              // Send to Yandex Metrica as well
-              if (typeof ym !== 'undefined') {
-                ym(${YANDEX_METRICA_ID || 'null'}, 'reachGoal', 'web_vitals', {
-                  metric_name: metric.name,
-                  metric_value: metric.value,
-                  metric_id: metric.id
-                });
-              }
-            }
-
-            // Enhanced user engagement tracking
-            let scrollTracked = {25: false, 50: false, 75: false, 90: false};
-            window.addEventListener('scroll', function() {
-              const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
-
-              Object.keys(scrollTracked).forEach(threshold => {
-                if (scrollPercent >= threshold && !scrollTracked[threshold]) {
-                  scrollTracked[threshold] = true;
-                  if (typeof gtag !== 'undefined') {
-                    gtag('event', 'scroll_depth', {
-                      event_category: 'engagement',
-                      event_label: threshold + '%',
-                      value: threshold
-                    });
-                  }
-                }
-              });
-            }, { passive: true });
-
-            // Time on page tracking
-            let pageStartTime = Date.now();
-            let timeTracked = {30: false, 60: false, 180: false};
-
-            setInterval(() => {
-              const timeSpent = Math.round((Date.now() - pageStartTime) / 1000);
-              Object.keys(timeTracked).forEach(threshold => {
-                if (timeSpent >= threshold && !timeTracked[threshold]) {
-                  timeTracked[threshold] = true;
-                  if (typeof gtag !== 'undefined') {
-                    gtag('event', 'time_on_page', {
-                      event_category: 'engagement',
-                      event_label: threshold + 's',
-                      value: timeSpent
-                    });
-                  }
-                }
-              });
-            }, 10000);
-          `}
-        </Script>
-
-        {/* Web Vitals Integration */}
-        <Script id="web-vitals" strategy="afterInteractive">
-          {`
-            // Import and initialize web-vitals
-            import('https://unpkg.com/web-vitals@3/dist/web-vitals.js').then(({ getCLS, getFID, getFCP, getLCP, getTTFB, getINP }) => {
-              getCLS(sendToAnalytics);
-              getFID(sendToAnalytics);
-              getFCP(sendToAnalytics);
-              getLCP(sendToAnalytics);
-              getTTFB(sendToAnalytics);
-              getINP(sendToAnalytics);
-            }).catch(console.error);
-          `}
-        </Script>
+        <ConsentAndAnalytics />
       </body>
     </html>
   );
