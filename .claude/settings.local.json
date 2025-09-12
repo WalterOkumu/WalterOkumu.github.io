@@ -7,7 +7,9 @@
       "Bash(npm install:*)",
       "Bash(npm run dev:*)",
       "Bash(node:*)",
-      "Read(/C:\\Users\\okumu\\GitHub\\personal_apps/**)"
+      "Read(/C:\\Users\\okumu\\GitHub\\personal_apps/**)",
+      "Bash(cat:*)",
+      "Bash(sed:*)"
     ],
     "deny": [],
     "ask": [],
