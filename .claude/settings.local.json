@@ -1,20 +1,16 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm install)",
-      "Bash(npm run init:*)",
-      "Bash(npm run add:task:*)",
-      "Bash(npm run dev:*)",
+      "WebSearch",
+      "Bash(npm run build:*)",
       "Bash(npm run lint)",
-      "Bash(npm run sync:*)",
-      "Bash(curl:*)",
-      "mcp__playwright__browser_navigate",
-      "mcp__playwright__browser_close"
-    ]
-  },
-  "enableAllProjectMcpServers": true,
-  "enabledMcpjsonServers": [
-    "context7",
-    "playwright"
-  ]
+      "Bash(npm install:*)",
+      "Bash(npm run dev:*)",
+      "Bash(node:*)",
+      "Read(/C:\\Users\\okumu\\GitHub\\personal_apps/**)"
+    ],
+    "deny": [],
+    "ask": [],
+    "defaultMode": "acceptEdits"
+  }
 }
