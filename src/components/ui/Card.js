@@ -148,7 +148,7 @@ const CardHeader = forwardRef(({ className, children, ...props }, ref) => (
 const CardTitle = forwardRef(({ className, children, ...props }, ref) => (
   <h3
     ref={ref}
-    className={cn("text-2xl font-semibold leading-none tracking-tight text-gray-900 dark:text-white", className)}
+    className={cn("text-2xl font-semibold leading-none tracking-tight text-neutral-900 dark:text-white", className)}
     {...props}
   >
     {children}
@@ -161,7 +161,7 @@ const CardTitle = forwardRef(({ className, children, ...props }, ref) => (
 const CardDescription = forwardRef(({ className, children, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn("text-sm text-gray-600 dark:text-gray-400", className)}
+    className={cn("text-sm text-neutral-600 dark:text-neutral-400", className)}
     {...props}
   >
     {children}

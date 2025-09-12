@@ -65,10 +65,10 @@ const structuredData = {
 
 export const metadata = {
   title: {
-    default: "Walter Okumu Oriaro - Head of Customer Success & Technical Architecture | Leading 12 Teams Across 7 Countries",
-    template: "%s | Walter Okumu Oriaro - Technology Executive"
+    default: "Walter Okumu Oriaro | Chief AI Officer & International Technology Executive",
+    template: "%s | Walter Okumu Oriaro - Chief AI Officer"
   },
-  description: "Head of Customer Success & Technical Architecture at Yellow Pages Group, leading 12-person international teams across 7 countries. Delivering 40% customer satisfaction improvement, 78% deployment error reduction, and managing technical infrastructure serving 5M+ users globally.",
+  description: "Chief AI Officer driving AI transformation with $2.3M revenue impact, leading international technology operations across 7 countries with 12 direct reports, 40% customer satisfaction improvement, and 78% deployment error reduction.",
   keywords: [
     // Executive Identity Keywords
     "Walter Okumu Oriaro",
@@ -182,8 +182,8 @@ export const metadata = {
     type: 'website',
     locale: 'en_US',
     url: '/',
-    title: 'Walter Okumu Oriaro - Head of Customer Success & Technical Architecture',
-    description: 'Leading 12-person international teams across 7 countries at Yellow Pages Group. Delivering 40% customer satisfaction improvement and 78% deployment error reduction through technical excellence.',
+    title: 'Walter Okumu Oriaro - Chief AI Officer & International Technology Executive',
+    description: 'AI transformation leader with $2.3M revenue impact, leading international teams across 7 countries. 40% customer satisfaction improvement and 78% deployment error reduction.',
     siteName: 'Walter Okumu Oriaro - Technology Executive Portfolio',
     images: [
       {
@@ -199,8 +199,8 @@ export const metadata = {
     card: 'summary_large_image',
     site: '@walter_oriaro',
     creator: '@walter_oriaro',
-    title: 'Walter Okumu Oriaro - Head of Customer Success & Technical Architecture',
-    description: 'Leading international teams across 7 countries with 40% customer satisfaction improvement and technical excellence.',
+    title: 'Walter Okumu Oriaro - Chief AI Officer & International Technology Executive',
+    description: 'AI transformation leader with $2.3M revenue impact and international team leadership across 7 countries.',
     images: ['/walter-okumu.webp']
   },
 
@@ -301,7 +301,7 @@ export default function RootLayout({ children }) {
         />
       </head>
 
-      <body className="font-sans antialiased bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+      <body className="font-sans antialiased bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100">
         {/* Theme initialization script to prevent flash */}
         <script
           dangerouslySetInnerHTML={{

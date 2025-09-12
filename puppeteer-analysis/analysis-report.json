@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-08-27T06:37:29.334Z",
+  "timestamp": "2025-09-12T19:52:56.898Z",
   "viewport": {
     "desktop": {
       "width": 1200,
@@ -15,7 +15,7 @@
       "rect": {
         "width": 1200,
         "height": 0,
-        "top": 0,
+        "top": 64,
         "left": 0
       },
       "styles": {
@@ -29,7 +29,7 @@
       },
       "links": [
         {
-          "text": "WOWalter OkumuTechnology Executive",
+          "text": "WOWalter OkumuChief AI Officer & Technology Executive",
           "href": "http://localhost:3000/",
           "visible": true,
           "rect": {}
@@ -37,37 +37,37 @@
         {
           "text": "Home",
           "href": "http://localhost:3000/",
-          "visible": false,
+          "visible": true,
           "rect": {}
         },
         {
-          "text": "About7 Countries",
-          "href": "http://localhost:3000/about/",
-          "visible": false,
+          "text": "AboutGlobal",
+          "href": "http://localhost:3000/about",
+          "visible": true,
           "rect": {}
         },
         {
           "text": "Projects12 Team Members",
-          "href": "http://localhost:3000/projects/",
-          "visible": false,
+          "href": "http://localhost:3000/projects",
+          "visible": true,
           "rect": {}
         },
         {
           "text": "Skills40% Growth",
-          "href": "http://localhost:3000/skills/",
-          "visible": false,
+          "href": "http://localhost:3000/skills",
+          "visible": true,
           "rect": {}
         },
         {
           "text": "ContactAvailable",
-          "href": "http://localhost:3000/contact/",
-          "visible": false,
+          "href": "http://localhost:3000/contact",
+          "visible": true,
           "rect": {}
         },
         {
           "text": "Get in Touch",
-          "href": "http://localhost:3000/contact/",
-          "visible": false,
+          "href": "http://localhost:3000/contact",
+          "visible": true,
           "rect": {}
         }
       ],
@@ -79,7 +79,7 @@
       "classList": [
         "w-full"
       ],
-      "innerHTML": 8685
+      "innerHTML": 9558
     },
     "mobile": {
       "rect": {
@@ -101,12 +101,12 @@
     "desktop": {
       "rect": {
         "width": 1200,
-        "height": 578.59375,
-        "top": 3580.703125,
+        "height": 580.3125,
+        "top": 4610.234375,
         "left": 0
       },
       "styles": {
-        "position": "relative",
+        "position": "static",
         "backgroundColor": "rgba(0, 0, 0, 0)",
         "display": "block",
         "padding": "0px",
@@ -214,7 +214,7 @@
       "classList": [
         "footer"
       ],
-      "innerHTML": 5187
+      "innerHTML": 5244
     }
   },
   "screenshots": [

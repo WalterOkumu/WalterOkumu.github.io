@@ -2,7 +2,7 @@
 const nextConfig = {
   // GitHub Flow Deployment Configuration
   output: 'export',
-  trailingSlash: true,
+  trailingSlash: false,
   distDir: 'dist', // GitHub Pages compatible
 
   // Image Optimization for Static Export

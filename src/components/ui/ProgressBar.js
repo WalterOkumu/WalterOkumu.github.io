@@ -94,7 +94,7 @@ const SkillProgress = forwardRef(({
   experience = '',
   description = '',
   className = '',
-  showLabel = false,
+  showlabel = false.toString(),
   ...props
 }, ref) => {
   const getVariantFromLevel = (level) => {
@@ -134,7 +134,7 @@ const SkillProgress = forwardRef(({
         variant={getVariantFromLevel(level)}
         size="lg"
         showValue
-        showLabel={showLabel}
+        showlabel={showlabel}
       />
 
       {description && (

@@ -516,7 +516,7 @@ export default function Skills() {
                         <SkillProgress
                           skill={skill.name}
                           level={skill.level}
-                          showLabel={false}
+                          showlabel={false.toString()}
                           className="h-3"
                         />
                       </CardContent>

@@ -30,7 +30,7 @@ const TimelineItem = forwardRef(({
   return (
     <div
       ref={ref}
-      className={cn('relative pb-8', !isLast && 'border-l-2 border-neutral-200 dark:border-neutral-800 ml-4', className)}
+      className={cn('relative pb-8 timeline-item', !isLast && 'border-l-2 border-neutral-200 dark:border-neutral-800 ml-4', className)}
       {...props}
     >
       {/* Timeline Dot */}
@@ -81,7 +81,7 @@ const TimelineItem = forwardRef(({
 
         {/* Achievements */}
         {achievements.length > 0 && (
-          <div className="mb-4">
+          <div className="mb-4 timeline-achievements-list">
             <h4 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100 mb-2">
               Key Achievements
             </h4>
@@ -90,6 +90,29 @@ const TimelineItem = forwardRef(({
                 <li key={index}>{achievement}</li>
               ))}
             </ul>
+          </div>
+        )}
+
+        {/* Executive Stats */}
+        {(teamSize || countries || revenueImpact) && (
+          <div className="mb-4 timeline-stats-list">
+            <div className="flex flex-wrap gap-3 text-sm">
+              {teamSize && (
+                <span className="px-2 py-1 rounded bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">
+                  {teamSize}
+                </span>
+              )}
+              {countries && (
+                <span className="px-2 py-1 rounded bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">
+                  {countries}
+                </span>
+              )}
+              {revenueImpact && (
+                <span className="px-2 py-1 rounded bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200">
+                  {revenueImpact}
+                </span>
+              )}
+            </div>
           </div>
         )}
 

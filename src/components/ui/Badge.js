@@ -23,16 +23,16 @@ const Badge = forwardRef(({
 }, ref) => {
   // Enhanced badge variants
   const badgeVariants = {
-    default: "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200",
+    default: "bg-neutral-100 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-200",
     primary: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
-    secondary: "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200",
+    secondary: "bg-neutral-100 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-200",
     success: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
     warning: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200",
     error: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200",
     info: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
     executive: "bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg",
     glass: "bg-white/10 backdrop-blur-md border border-white/20 text-white",
-    outline: "border border-gray-200 text-gray-700 dark:border-gray-700 dark:text-gray-300"
+    outline: "border border-neutral-200 text-neutral-700 dark:border-neutral-700 dark:text-neutral-300"
   };
 
   // Enhanced size variants
@@ -129,14 +129,14 @@ const StatusBadge = forwardRef(({
   ...props
 }, ref) => {
   const statusVariants = {
-    default: "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200",
+    default: "bg-neutral-100 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-200",
     active: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
     inactive: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200",
     pending: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200",
     completed: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
-    draft: "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200",
+    draft: "bg-neutral-100 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-200",
     published: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
-    archived: "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200"
+    archived: "bg-neutral-100 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-200"
   };
 
   return (
@@ -164,7 +164,7 @@ const MetricBadge = forwardRef(({
   const trendVariants = {
     positive: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
     negative: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200",
-    neutral: "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200"
+    neutral: "bg-neutral-100 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-200"
   };
 
   const trendIcons = {

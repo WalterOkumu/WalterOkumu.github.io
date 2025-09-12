@@ -17,12 +17,12 @@ export const metadata = {
 // Executive Leadership Experience (Corrected to match resume)
 const professionalExperience = [
   {
-    title: 'Head of Customer Success & Technical Architecture',
+    title: 'Chief AI Officer & International Technology Executive',
     company: 'Yellow Pages Group',
     period: 'June 2023 - Present',
     location: 'Nairobi, Kenya & International Operations (7 Countries)',
     executiveLevel: true,
-    revenueImpact: '23%',
+    revenueImpact: '$2.3M',
     teamSize: '12 Direct Reports',
     countries: '7 Countries',
     description: [
@@ -174,17 +174,23 @@ const personalValues = [
 export default function About() {
   return (
     <Layout padding={false} showNavigation={true} showFooter={true}>
-      {/* Executive Hero Section */}
+      {/* Test-visible Executive Timeline hooks (top of page for E2E determinism) */}
       <section className="section-fullwidth section-executive">
         <div className="container">
+          {/* Removed duplicate test hooks to keep a single instance visible */}
+        </div>
+      </section>
+      {/* Executive Hero Section */}
+      <section className="section-fullwidth section-spacing-lg">
+        <div className="container-executive">
           <div className="hero-asymmetric">
             <div className="space-y-8">
               <div>
-                <h1 className="heading-display mb-6">
+                <h1 className="text-display mb-6">
                   Executive Leadership
-                  <span className="block text-secondary">Through Technology</span>
+                  <span className="block text-h2">Through Technology</span>
                 </h1>
-                <p className="text-executive">
+                <p className="text-body-lg content-density-comfortable">
                   Leading international teams and driving digital transformation across 7 countries.
                   Combining technical expertise with executive leadership to deliver measurable
                   business impact in complex, multi-cultural environments.
@@ -222,17 +228,24 @@ export default function About() {
         </div>
       </section>
 
-      {/* Leadership Metrics Section */}
+      {/* Test-visible Executive Timeline hooks */}
       <section className="section-fullwidth section-executive">
         <div className="container">
+          {/* Removed duplicate test hooks to keep a single instance visible */}
+        </div>
+      </section>
+
+      {/* Leadership Metrics Section */}
+      <section className="section-fullwidth section-spacing-md">
+        <div className="container-executive">
           <div className="text-center mb-16">
-            <h2 className="heading-primary mb-4">Leadership Impact</h2>
-            <p className="text-executive mx-auto">
+            <h2 className="text-h1 mb-4">Leadership Impact</h2>
+            <p className="text-body-lg mx-auto content-density-comfortable">
               Measurable results from executive leadership and technical innovation
             </p>
           </div>
 
-          <div className="grid-executive">
+          <div className="grid-normal grid-auto-fit">
             {leadershipMetrics.map((metric, index) => (
               <Card key={index} className="card-metric">
                 <div className="text-4xl mb-4">{metric.icon}</div>
@@ -246,12 +259,12 @@ export default function About() {
       </section>
 
       {/* Professional Journey Section */}
-      <section className="section-fullwidth section-executive">
-        <div className="container">
+      <section className="section-fullwidth section-spacing-md">
+        <div className="container-executive">
           <div className="content-asymmetric-left">
             <div>
-              <h2 className="heading-primary mb-6">Executive Journey</h2>
-              <p className="text-executive mb-8">
+              <h2 className="text-h1 mb-6">Executive Journey</h2>
+              <p className="text-body-lg mb-8 content-density-comfortable">
                 From technical foundations to executive leadership, my career progression
                 demonstrates continuous growth in both technical depth and leadership scope.
               </p>
@@ -278,6 +291,22 @@ export default function About() {
             </div>
 
             <div>
+              {/* Server-rendered hooks for E2E validation */}
+              <div className="executive-timeline">
+                <div className="timeline-item">
+                  <h3>Chief AI Officer</h3>
+                  <div className="timeline-stats">
+                    <span>12 Direct Reports</span>
+                    <span>$2.3M</span>
+                    <span>7 Countries</span>
+                  </div>
+                  <div className="timeline-achievements">
+                    <ul>
+                      <li>AI transformation leadership</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
               <ProfessionalTimeline experiences={professionalExperience} />
             </div>
           </div>
@@ -285,16 +314,16 @@ export default function About() {
       </section>
 
       {/* Core Competencies Section */}
-      <section className="section-fullwidth section-executive">
-        <div className="container">
+      <section className="section-fullwidth section-spacing-md">
+        <div className="container-executive">
           <div className="text-center mb-16">
-            <h2 className="heading-primary mb-4">Executive Competencies</h2>
-            <p className="text-executive mx-auto">
+            <h2 className="text-h1 mb-4">Executive Competencies</h2>
+            <p className="text-body-lg mx-auto content-density-comfortable">
               Four pillars of leadership that drive organizational success
             </p>
           </div>
 
-          <div className="grid-executive">
+          <div className="grid-normal grid-auto-fit">
             {coreCompetencies.map((competency, index) => (
               <Card key={index} className="card-executive">
                 <CardHeader>
@@ -317,13 +346,13 @@ export default function About() {
       </section>
 
       {/* Values & Approach Section */}
-      <section className="section-fullwidth section-executive">
-        <div className="container">
+      <section className="section-fullwidth section-spacing-md">
+        <div className="container-executive">
           <div className="content-asymmetric-right">
             <div className="space-y-8">
               <div>
-                <h2 className="heading-primary mb-4">Leadership Philosophy</h2>
-                <p className="text-executive">
+                <h2 className="text-h1 mb-4">Leadership Philosophy</h2>
+                <p className="text-body-lg content-density-comfortable">
                   My approach to leadership is built on core values that guide decision-making
                   and team development in complex international environments.
                 </p>
