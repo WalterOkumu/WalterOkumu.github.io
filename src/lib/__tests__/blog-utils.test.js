@@ -61,7 +61,7 @@ describe('blog-utils.js', () => {
       // Create text with exactly 200 words (should be 1 minute)
       const words = new Array(200).fill('word').join(' ');
       const result = calculateReadingTime(words);
-      
+
       expect(result).toBe('1 min read');
     });
 
@@ -69,14 +69,14 @@ describe('blog-utils.js', () => {
       // Create text with 250 words (should be 2 minutes: ceil(250/200))
       const words = new Array(250).fill('word').join(' ');
       const result = calculateReadingTime(words);
-      
+
       expect(result).toBe('2 min read');
     });
 
     it('should handle short text correctly', () => {
       const shortText = 'This is a very short text.';
       const result = calculateReadingTime(shortText);
-      
+
       // Should be 1 minute (minimum reading time due to ceiling)
       expect(result).toBe('1 min read');
     });
@@ -85,20 +85,20 @@ describe('blog-utils.js', () => {
       // Create text with 1000 words (should be 5 minutes)
       const longText = new Array(1000).fill('word').join(' ');
       const result = calculateReadingTime(longText);
-      
+
       expect(result).toBe('5 min read');
     });
 
     it('should handle empty text', () => {
       const result = calculateReadingTime('');
-      
+
       // Empty string split will create array with one empty element
       expect(result).toBe('1 min read');
     });
 
     it('should handle whitespace-only text', () => {
       const result = calculateReadingTime('   \n  \t  ');
-      
+
       // Whitespace will be split into multiple empty elements
       expect(result).toBe('1 min read');
     });
@@ -106,7 +106,7 @@ describe('blog-utils.js', () => {
     it('should handle text with multiple spaces', () => {
       const text = 'word    word    word'; // 3 words with multiple spaces
       const result = calculateReadingTime(text);
-      
+
       expect(result).toBe('1 min read');
     });
 
@@ -117,7 +117,7 @@ describe('blog-utils.js', () => {
       word
       word`; // 5 words across lines
       const result = calculateReadingTime(text);
-      
+
       expect(result).toBe('1 min read');
     });
 
@@ -143,13 +143,13 @@ describe('blog-utils.js', () => {
         
         Final paragraph with concluding thoughts.
       `;
-      
+
       const result = calculateReadingTime(blogContent);
-      
+
       // Should calculate based on actual word count
       const wordCount = blogContent.split(/\s+/).length;
       const expectedMinutes = Math.ceil(wordCount / 200);
-      
+
       expect(result).toBe(`${expectedMinutes} min read`);
     });
 
@@ -166,13 +166,13 @@ describe('blog-utils.js', () => {
         
         [Link text](https://example.com) counts as words.
       `;
-      
+
       const result = calculateReadingTime(markdownContent);
-      
+
       // All text including code and markdown syntax should be counted
       const wordCount = markdownContent.split(/\s+/).length;
       const expectedMinutes = Math.ceil(wordCount / 200);
-      
+
       expect(result).toBe(`${expectedMinutes} min read`);
     });
 
@@ -180,7 +180,7 @@ describe('blog-utils.js', () => {
       // Test that the function uses the standard 200 WPM rate
       const exactlyTwoHundredWords = new Array(200).fill('word').join(' ');
       expect(calculateReadingTime(exactlyTwoHundredWords)).toBe('1 min read');
-      
+
       const fourHundredWords = new Array(400).fill('word').join(' ');
       expect(calculateReadingTime(fourHundredWords)).toBe('2 min read');
     });
@@ -188,7 +188,7 @@ describe('blog-utils.js', () => {
     it('should handle edge cases with punctuation', () => {
       const textWithPunctuation = 'Hello, world! How are you? Fine, thanks.';
       const result = calculateReadingTime(textWithPunctuation);
-      
+
       // Should split on whitespace, so punctuation attached to words counts as one word
       expect(result).toBe('1 min read');
     });
@@ -196,7 +196,7 @@ describe('blog-utils.js', () => {
     it('should handle numbers and special characters', () => {
       const textWithNumbers = '123 hello world 456 test @user #hashtag';
       const result = calculateReadingTime(textWithNumbers);
-      
+
       // Each space-separated element should count as a word
       expect(result).toBe('1 min read');
     });
@@ -208,7 +208,7 @@ describe('blog-utils.js', () => {
         'word\tword\tword\tword\tword',
         '  word   word   word   word   word  ',
       ];
-      
+
       sameContentDifferentFormat.forEach(content => {
         expect(calculateReadingTime(content)).toBe('1 min read');
       });
@@ -223,10 +223,10 @@ describe('blog-utils.js', () => {
         },
         content: new Array(300).fill('word').join(' '), // 300 words
       };
-      
+
       const formattedDate = formatDate(blogPost.frontmatter.date);
       const readingTime = calculateReadingTime(blogPost.content);
-      
+
       expect(formattedDate).toBe('December 25, 2023');
       expect(readingTime).toBe('2 min read'); // ceil(300/200)
     });
@@ -246,22 +246,22 @@ describe('blog-utils.js', () => {
           content: new Array(1000).fill('word').join(' '),
         },
       ];
-      
+
       const processedPosts = blogPosts.map(post => ({
         formattedDate: formatDate(post.date),
         readingTime: calculateReadingTime(post.content),
       }));
-      
+
       expect(processedPosts[0]).toEqual({
         formattedDate: 'January 15, 2023',
         readingTime: '1 min read',
       });
-      
+
       expect(processedPosts[1]).toEqual({
         formattedDate: 'June 20, 2023',
         readingTime: '3 min read',
       });
-      
+
       expect(processedPosts[2]).toEqual({
         formattedDate: 'December 1, 2023',
         readingTime: '5 min read',
@@ -275,7 +275,7 @@ describe('blog-utils.js', () => {
       expect(() => formatDate(123)).toThrow();
       expect(() => formatDate({})).toThrow();
       expect(() => formatDate([])).toThrow();
-      
+
       // calculateReadingTime should handle non-string input
       expect(() => calculateReadingTime(123)).toThrow();
       expect(() => calculateReadingTime(null)).toThrow();
@@ -284,16 +284,16 @@ describe('blog-utils.js', () => {
     });
 
     it('should maintain consistency with various date formats', () => {
-      const dateFormats = [
+      const _dateFormats = [
         '2023-12-25',
         '2023/12/25',
         'December 25, 2023',
       ];
-      
+
       // Some formats might not be handled correctly
       const validFormat = '2023-12-25';
       expect(formatDate(validFormat)).toBe('December 25, 2023');
-      
+
       // ISO date strings should work
       const isoDate = '2023-12-25T10:30:00Z';
       expect(formatDate(isoDate)).toBe('December 25, 2023');
@@ -303,14 +303,14 @@ describe('blog-utils.js', () => {
       // Test with very large content (10,000 words)
       const largeContent = new Array(10000).fill('word').join(' ');
       const result = calculateReadingTime(largeContent);
-      
+
       expect(result).toBe('50 min read'); // 10000/200 = 50
-      
+
       // Performance test - should complete quickly
       const startTime = Date.now();
       calculateReadingTime(largeContent);
       const endTime = Date.now();
-      
+
       // Should complete in less than 100ms
       expect(endTime - startTime).toBeLessThan(100);
     });

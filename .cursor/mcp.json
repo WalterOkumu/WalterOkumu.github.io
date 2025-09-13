@@ -8,14 +8,12 @@
 				"PGCOMMAND_TIMEOUT": "30"
 			}
 		},
-		"YELLOW_PAGES_DB_LOCAL": {
-			"command": "npx",
-			"args": ["-y", "@modelcontextprotocol/server-postgres", "postgresql://pgWebApp:lVMKBjRVps3H@localhost:5432/YELLOWPAGES_KEN_DB"],
-			"env": {
-				"PGCONNECT_TIMEOUT": "10",
-				"PGCOMMAND_TIMEOUT": "30"
-			}
-		},
+		"puppeteer": {
+      "command": "npx",
+      "args": ["-y", "puppeteer-mcp-server"],
+      "env": {}
+    },
+
 		"task-master-ai": {
 			"command": "npx",
 			"args": ["-y", "--package=task-master-ai", "task-master-ai"],

@@ -66,7 +66,7 @@ describe('utils.js', () => {
     });
 
     it('should handle conditional classes', () => {
-      expect(cn('base', true && 'conditional', false && 'ignored')).toBe('base conditional');
+      expect(cn('base', Boolean(true) && 'conditional', Boolean(false) && 'ignored')).toBe('base conditional');
     });
 
     it('should merge Tailwind classes', () => {
@@ -106,7 +106,7 @@ describe('utils.js', () => {
     it('should calculate reading time correctly', () => {
       const text = 'This is a sample text with exactly ten words here.';
       const result = calculateReadingTime(text);
-      
+
       expect(result.words).toBe(10);
       expect(result.minutes).toBe(1); // Ceiling of 10/200 = 1
       expect(result.text).toBe('1 min read');
@@ -115,7 +115,7 @@ describe('utils.js', () => {
     it('should handle custom words per minute', () => {
       const text = 'word '.repeat(100).trim(); // 100 words
       const result = calculateReadingTime(text, 50);
-      
+
       expect(result.words).toBe(100);
       expect(result.minutes).toBe(2); // Ceiling of 100/50 = 2
       expect(result.text).toBe('2 min read');
@@ -207,7 +207,7 @@ describe('utils.js', () => {
 
       debouncedFn('arg1', 'arg2');
       jest.advanceTimersByTime(1000);
-      
+
       expect(mockFn).toHaveBeenCalledWith('arg1', 'arg2');
     });
   });
@@ -324,7 +324,7 @@ describe('utils.js', () => {
     it('should clone simple objects', () => {
       const obj = { a: 1, b: 'test' };
       const cloned = deepClone(obj);
-      
+
       expect(cloned).toEqual(obj);
       expect(cloned).not.toBe(obj);
     });
@@ -332,7 +332,7 @@ describe('utils.js', () => {
     it('should clone nested objects', () => {
       const obj = { a: { b: { c: 1 } } };
       const cloned = deepClone(obj);
-      
+
       cloned.a.b.c = 2;
       expect(obj.a.b.c).toBe(1);
     });
@@ -340,10 +340,10 @@ describe('utils.js', () => {
     it('should clone arrays', () => {
       const arr = [1, { a: 2 }, [3, 4]];
       const cloned = deepClone(arr);
-      
+
       cloned[1].a = 5;
       cloned[2][0] = 6;
-      
+
       expect(arr[1].a).toBe(2);
       expect(arr[2][0]).toBe(3);
     });
@@ -351,7 +351,7 @@ describe('utils.js', () => {
     it('should clone dates', () => {
       const date = new Date('2023-01-01');
       const cloned = deepClone(date);
-      
+
       expect(cloned).toEqual(date);
       expect(cloned).not.toBe(date);
     });
@@ -395,9 +395,9 @@ describe('utils.js', () => {
     it('should return false when window is undefined', () => {
       const originalWindow = global.window;
       delete global.window;
-      
+
       expect(isClient()).toBe(false);
-      
+
       global.window = originalWindow;
     });
   });
@@ -498,7 +498,7 @@ describe('utils.js', () => {
 
     it('should scroll to element by selector', () => {
       scrollToElement('#target');
-      
+
       expect(document.querySelector).toHaveBeenCalledWith('#target');
       expect(mockElement.scrollIntoView).toHaveBeenCalledWith({
         behavior: 'smooth',
@@ -534,9 +534,9 @@ describe('utils.js', () => {
 
     it('should use clipboard API when available', async () => {
       navigator.clipboard.writeText.mockResolvedValue(undefined);
-      
+
       const result = await copyToClipboard('test text');
-      
+
       expect(result).toBe(true);
       expect(navigator.clipboard.writeText).toHaveBeenCalledWith('test text');
     });
@@ -545,11 +545,11 @@ describe('utils.js', () => {
       // Make clipboard API unavailable
       Object.defineProperty(navigator, 'clipboard', { value: null });
       Object.defineProperty(window, 'isSecureContext', { value: false });
-      
+
       document.execCommand.mockReturnValue(true);
-      
+
       const result = await copyToClipboard('test text');
-      
+
       expect(result).toBe(true);
       expect(document.createElement).toHaveBeenCalledWith('textarea');
       expect(document.execCommand).toHaveBeenCalledWith('copy');
@@ -557,9 +557,9 @@ describe('utils.js', () => {
 
     it('should handle errors gracefully', async () => {
       navigator.clipboard.writeText.mockRejectedValue(new Error('Failed'));
-      
+
       const result = await copyToClipboard('test text');
-      
+
       expect(result).toBe(false);
     });
   });
@@ -569,10 +569,10 @@ describe('utils.js', () => {
 
     it('should create a promise that resolves after specified time', async () => {
       const promise = delay(1000);
-      
+
       jest.advanceTimersByTime(999);
       expect(promise).toBe(promise); // Still pending
-      
+
       jest.advanceTimersByTime(1);
       await expect(promise).resolves.toBeUndefined();
     });
@@ -583,9 +583,9 @@ describe('utils.js', () => {
 
     it('should resolve immediately on first success', async () => {
       const mockFn = jest.fn().mockResolvedValue('success');
-      
+
       const result = await retryWithBackoff(mockFn);
-      
+
       expect(result).toBe('success');
       expect(mockFn).toHaveBeenCalledTimes(1);
     });
@@ -595,12 +595,12 @@ describe('utils.js', () => {
         .mockRejectedValueOnce(new Error('fail1'))
         .mockRejectedValueOnce(new Error('fail2'))
         .mockResolvedValue('success');
-      
+
       const promise = retryWithBackoff(mockFn, 3, 100);
-      
+
       // Fast forward through the delays
       await jest.runAllTimersAsync();
-      
+
       const result = await promise;
       expect(result).toBe('success');
       expect(mockFn).toHaveBeenCalledTimes(3);
@@ -609,11 +609,11 @@ describe('utils.js', () => {
     it('should throw last error when max retries exceeded', async () => {
       const error = new Error('final error');
       const mockFn = jest.fn().mockRejectedValue(error);
-      
+
       const promise = retryWithBackoff(mockFn, 2, 100);
-      
+
       await jest.runAllTimersAsync();
-      
+
       await expect(promise).rejects.toThrow('final error');
       expect(mockFn).toHaveBeenCalledTimes(3); // Initial call + 2 retries
     });

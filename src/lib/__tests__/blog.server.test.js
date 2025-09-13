@@ -1,15 +1,17 @@
 import fs from 'fs';
 import path from 'path';
+
 import matter from 'gray-matter';
+
 import {
   getAllBlogSlugs,
   getBlogBySlug,
   getAllBlogPosts,
-  getBlogPostsByCategory,
-  getBlogPostsByTag,
-  getRelatedPosts,
-  getAllCategories,
-  getAllTags,
+//   getBlogPostsByCategory,
+//   getBlogPostsByTag,
+//   getRelatedPosts,
+//   getAllCategories,
+//   getAllTags,
 } from '../blog.server';
 
 // Mock dependencies
@@ -20,10 +22,10 @@ jest.mock('gray-matter');
 describe('blog.server.js', () => {
   beforeEach(() => {
     jest.clearAllMocks();
-    
+
     // Mock path.join to return predictable paths
     path.join.mockImplementation((...segments) => segments.join('/'));
-    
+
     // Mock process.cwd
     process.cwd = jest.fn(() => '/mock/project');
   });
@@ -98,7 +100,7 @@ describe('blog.server.js', () => {
       expect(path.join).toHaveBeenCalledWith('/mock/project/src/content/blog', 'test-post.mdx');
       expect(fs.readFileSync).toHaveBeenCalledWith('/mock/project/src/content/blog/test-post.mdx', 'utf8');
       expect(matter).toHaveBeenCalledWith('mock file content');
-      
+
       expect(result).toEqual({
         slug: 'test-post',
         frontmatter: {
@@ -159,7 +161,7 @@ describe('blog.server.js', () => {
     it('should handle missing published field as published: true', () => {
       const dataWithoutPublished = { ...mockMatterData };
       delete dataWithoutPublished.published;
-      
+
       matter.mockReturnValue({
         data: dataWithoutPublished,
         content: mockContent,
@@ -197,13 +199,13 @@ describe('blog.server.js', () => {
     beforeEach(() => {
       // Mock getAllBlogSlugs
       fs.readdirSync.mockReturnValue(['post1.mdx', 'post2.mdx', 'draft.mdx']);
-      
+
       // Mock getBlogBySlug responses
       fs.readFileSync
         .mockReturnValueOnce('post1 content')
         .mockReturnValueOnce('post2 content')
         .mockReturnValueOnce('draft content');
-      
+
       matter
         .mockReturnValueOnce({
           data: {
@@ -261,7 +263,7 @@ describe('blog.server.js', () => {
         .mockImplementationOnce(() => {
           throw new Error('File corrupted');
         });
-      
+
       matter.mockReturnValueOnce({
         data: {
           title: 'Good Post',
@@ -315,7 +317,7 @@ describe('blog.server.js', () => {
       ];
 
       const result = posts.filter((post) =>
-        post.frontmatter.category.toLowerCase() === 'technology'
+        post.frontmatter.category.toLowerCase() === 'technology',
       );
 
       expect(result).toHaveLength(2);
@@ -332,7 +334,7 @@ describe('blog.server.js', () => {
       ];
 
       const result = posts.filter((post) =>
-        post.frontmatter.category.toLowerCase() === 'TECHNOLOGY'.toLowerCase()
+        post.frontmatter.category.toLowerCase() === 'TECHNOLOGY'.toLowerCase(),
       );
 
       expect(result).toHaveLength(1);
@@ -347,7 +349,7 @@ describe('blog.server.js', () => {
       ];
 
       const result = posts.filter((post) =>
-        post.frontmatter.category.toLowerCase() === 'nonexistent'
+        post.frontmatter.category.toLowerCase() === 'nonexistent',
       );
 
       expect(result).toHaveLength(0);
@@ -373,7 +375,7 @@ describe('blog.server.js', () => {
 
       const result = posts.filter((post) =>
         post.frontmatter.tags.some((postTag) =>
-          postTag.toLowerCase() === 'javascript'
+          postTag.toLowerCase() === 'javascript',
         ),
       );
 
@@ -392,7 +394,7 @@ describe('blog.server.js', () => {
 
       const result = posts.filter((post) =>
         post.frontmatter.tags.some((postTag) =>
-          postTag.toLowerCase() === 'react'
+          postTag.toLowerCase() === 'react',
         ),
       );
 
@@ -409,7 +411,7 @@ describe('blog.server.js', () => {
 
       const result = posts.filter((post) =>
         post.frontmatter.tags.some((postTag) =>
-          postTag.toLowerCase() === 'nonexistent'
+          postTag.toLowerCase() === 'nonexistent',
         ),
       );
 
@@ -723,14 +725,14 @@ describe('blog.server.js', () => {
       expect(allPosts).toHaveLength(3); // Excluding draft
 
       // Test category filtering
-      const frontendPosts = allPosts.filter(post => 
-        post.frontmatter.category === 'Frontend'
+      const frontendPosts = allPosts.filter(post =>
+        post.frontmatter.category === 'Frontend',
       );
       expect(frontendPosts).toHaveLength(2);
 
       // Test tag filtering
       const reactPosts = allPosts.filter(post =>
-        post.frontmatter.tags.includes('react')
+        post.frontmatter.tags.includes('react'),
       );
       expect(reactPosts).toHaveLength(2);
     });
