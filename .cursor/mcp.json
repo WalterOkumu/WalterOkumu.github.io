@@ -1,0 +1,28 @@
+{
+	"mcpServers": {
+		"Local_PostgreSQL": {
+			"command": "npx",
+			"args": ["-y", "@modelcontextprotocol/server-postgres", "postgresql://postgres:password@localhost:5432/postgres"],
+			"env": {
+				"PGCONNECT_TIMEOUT": "5",
+				"PGCOMMAND_TIMEOUT": "30"
+			}
+		},
+		"YELLOW_PAGES_DB_LOCAL": {
+			"command": "npx",
+			"args": ["-y", "@modelcontextprotocol/server-postgres", "postgresql://pgWebApp:lVMKBjRVps3H@localhost:5432/YELLOWPAGES_KEN_DB"],
+			"env": {
+				"PGCONNECT_TIMEOUT": "10",
+				"PGCOMMAND_TIMEOUT": "30"
+			}
+		},
+		"task-master-ai": {
+			"command": "npx",
+			"args": ["-y", "--package=task-master-ai", "task-master-ai"],
+			"env": {
+				"GOOGLE_API_KEY": "AIzaSyCAlGFWw8iS1IGbQx8UBFWytr6yxQuru7Q",
+    "MISTRAL_API_KEY": "2t8Fnrp5fgTToGvYNGVzA0jgCbRyJW19"
+			}
+		}
+	}
+}

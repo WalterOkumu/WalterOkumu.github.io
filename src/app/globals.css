@@ -1,177 +1,397 @@
+/* Brand Fonts from Brand Guide */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&family=Fira+Code:wght@300;400;500;600&display=swap');
+
 @import "tailwindcss";
 
-/* Fonts are loaded via next/font in layout.js */
-
+/* CSS Custom Properties */
 :root {
-  --background: 0 0% 100%;
-  --foreground: 220 13% 28%;
-  --primary: 210 55% 37%;
-  --primary-foreground: 0 0% 100%;
-  --secondary: 220 14% 96%;
-  --secondary-foreground: 220 13% 28%;
-  --muted: 220 14% 98%;
-  --muted-foreground: 220 9% 46%;
-  --border: 220 13% 91%;
-  --input: 220 13% 91%;
-  --ring: 210 55% 37%;
+  /* Colors */
+  --color-primary-50: #f5f8fa;
+  --color-primary-100: #e6edf5;
+  --color-primary-200: #c5d6e6;
+  --color-primary-300: #94b6d1;
+  --color-primary-400: #5c8cb5;
+  --color-primary-500: #2f5e91;
+  --color-primary-600: #244a72;
+  --color-primary-700: #1d3b5b;
+  --color-primary-800: #162b43;
+  --color-primary-900: #0f1d2e;
+
+  --color-accent-100: #f9fafb;
+  --color-accent-200: #f3f4f6;
+  --color-accent-500: #9ca3af;
+  --color-accent-700: #4b5563;
+  --color-accent-900: #111827;
+
+  /* Typography */
+  --font-inter: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-poppins: 'Poppins', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-roboto: 'Roboto', ui-serif, Georgia, serif;
+  --font-fira-code: 'Fira Code', ui-monospace, SFMono-Regular, 'Cascadia Code', 'Roboto Mono', monospace;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  /* Transitions */
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 250ms ease-in-out;
+  --transition-slow: 350ms ease-in-out;
+
+  /* Layout */
+  --max-width-prose: 65ch;
+  --max-width-container: 1280px;
+  --border-radius: 0.5rem;
 }
 
+/* Light mode defaults */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --muted: #f9fafb;
+  --muted-foreground: #6b7280;
+  --border: #e5e7eb;
+  --card: #ffffff;
+  --card-foreground: #171717;
+}
+
+/* Dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: 210 40% 9%;
-    --foreground: 220 14% 98%;
-    --primary: 210 40% 53%;
-    --primary-foreground: 210 40% 9%;
-    --secondary: 210 40% 16%;
-    --secondary-foreground: 220 14% 98%;
-    --muted: 210 40% 21%;
-    --muted-foreground: 220 9% 68%;
-    --border: 210 40% 29%;
-    --input: 210 40% 29%;
-    --ring: 210 40% 53%;
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --muted: #1a1a1a;
+    --muted-foreground: #9ca3af;
+    --border: #374151;
+    --card: #111111;
+    --card-foreground: #ededed;
   }
 }
 
+/* Base Styles */
 * {
-  border: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 body {
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
-  font-family: 'Roboto', system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-feature-settings: "rlig" 1, "calt" 1;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-roboto);
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 400;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-/* Base Typography */
+/* Typography */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Inter', system-ui, sans-serif;
-  color: #2f5e91;
+  font-family: var(--font-poppins);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-primary-700);
+  margin-bottom: 0.5em;
+  scroll-margin-top: 2rem;
 }
 
 h1 {
-  font-size: 2.25rem;
+  font-size: clamp(1.875rem, 5vw, 3.75rem);
   font-weight: 800;
-  line-height: 1.2;
+  letter-spacing: -0.025em;
 }
 
-@media (min-width: 768px) {
-  h1 {
-    font-size: 3rem;
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+h3 {
+  font-size: clamp(1.25rem, 3vw, 1.875rem);
+  font-weight: 600;
+}
+
+h4 {
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  font-weight: 600;
+}
+
+p {
+  margin-bottom: 1rem;
+  max-width: var(--max-width-prose);
+}
+
+/* Links */
+a {
+  color: var(--color-primary-600);
+  text-decoration-line: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.25em;
+  transition: all var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary-700);
+  text-decoration-color: currentColor;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+  text-decoration-color: transparent;
+}
+
+/* Skip to content link for accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--color-primary-500);
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+  z-index: 1000;
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* Code styles */
+code {
+  font-family: var(--font-fira-code);
+  font-size: 0.875em;
+  font-weight: 500;
+  background: var(--muted);
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--border);
+}
+
+pre {
+  font-family: var(--font-fira-code);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  background: var(--muted);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border);
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+}
+
+/* Lists */
+ul, ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+li {
+  margin-bottom: 0.25rem;
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 4px solid var(--color-primary-500);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: var(--muted-foreground);
+}
+
+/* Form elements */
+input, textarea, select {
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--foreground);
+  background: var(--background);
+  border: 2px solid var(--border);
+  border-radius: var(--border-radius);
+  padding: 0.75rem;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 3px rgb(47 94 145 / 0.1);
+}
+
+button {
+  font-family: var(--font-inter);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Images and media */
+img, video {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+}
+
+/* Layout utilities */
+.container {
+  max-width: var(--max-width-container);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 2rem;
   }
 }
 
 @media (min-width: 1024px) {
-  h1 {
-    font-size: 3.75rem;
+  .container {
+    padding: 0 4rem;
   }
 }
 
-h2 {
-  font-size: 1.875rem;
-  font-weight: 700;
-  line-height: 1.2;
+/* Utility classes */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
-@media (min-width: 768px) {
-  h2 {
-    font-size: 2.25rem;
-  }
-}
-
-h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  line-height: 1.2;
-}
-
-@media (min-width: 768px) {
-  h3 {
-    font-size: 1.875rem;
-  }
-}
-
-h4 {
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-
-@media (min-width: 768px) {
-  h4 {
-    font-size: 1.5rem;
-  }
-}
-
-/* Utility Classes */
-.text-gradient {
-  background: linear-gradient(to right, #244a72, #5c8cb5);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-.shadow-brand {
-  box-shadow: 0 10px 25px -5px rgba(47, 94, 145, 0.1), 0 10px 10px -5px rgba(47, 94, 145, 0.04);
-}
-
-.btn-primary {
-  background-color: #2f5e91;
-  color: white;
-  font-weight: 500;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  transition: all 0.2s ease;
-  box-shadow: 0 10px 25px -5px rgba(47, 94, 145, 0.1), 0 10px 10px -5px rgba(47, 94, 145, 0.04);
-}
-
-.btn-primary:hover {
-  background-color: #244a72;
-  box-shadow: 0 20px 25px -5px rgba(47, 94, 145, 0.15), 0 10px 10px -5px rgba(47, 94, 145, 0.08);
-}
-
-.btn-secondary {
-  background-color: transparent;
-  border: 2px solid #2f5e91;
-  color: #2f5e91;
-  font-weight: 500;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  transition: all 0.2s ease;
-}
-
-.btn-secondary:hover {
-  background-color: #2f5e91;
-  color: white;
-}
-
-/* Code Highlighting */
-code {
-  font-family: 'Fira Code', monospace;
-  font-size: 0.875rem;
-  background-color: #f9fafb;
-  padding: 0.125rem 0.375rem;
-  border-radius: 0.25rem;
-  color: #244a72;
-}
-
-pre {
-  font-family: 'Fira Code', monospace;
-  font-size: 0.875rem;
-  background-color: #f9fafb;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  overflow-x: auto;
-}
-
-/* Smooth Scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Focus States */
-.focus\:outline-brand:focus {
-  outline: 2px solid #2f5e91;
+.focus-ring:focus-visible {
+  outline: 2px solid var(--color-primary-500);
   outline-offset: 2px;
+}
+
+/* Animation utilities */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --border: #000000;
+    --muted-foreground: #000000;
+  }
+
+  button, input, textarea, select {
+    border-width: 2px;
+  }
+}
+
+/* Print styles */
+@media print {
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+    color: #000;
+    background: #fff;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    color: #000;
+  }
+
+  p, li {
+    orphans: 3;
+    widows: 3;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
 }
