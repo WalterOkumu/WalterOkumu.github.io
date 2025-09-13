@@ -1,56 +1,57 @@
-'use client'
+'use client';
 
-import { useState, useMemo } from 'react'
-import BlogCard from '@/components/blog/BlogCard'
+import { useState, useMemo } from 'react';
+
+import BlogCard from '@/components/blog/BlogCard';
 
 export default function BlogClient({ allPosts, categories }) {
-  const [searchTerm, setSearchTerm] = useState('')
-  const [selectedCategory, setSelectedCategory] = useState('all')
-  const [currentPage, setCurrentPage] = useState(1)
-  const postsPerPage = 6
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 6;
 
   // Filter posts based on search and category
   const filteredPosts = useMemo(() => {
-    let filtered = allPosts
+    let filtered = allPosts;
 
     // Filter by search term
     if (searchTerm) {
       filtered = filtered.filter(post =>
         post.frontmatter.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         post.frontmatter.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        post.frontmatter.tags.some(tag => 
-          tag.toLowerCase().includes(searchTerm.toLowerCase())
-        )
-      )
+        post.frontmatter.tags.some(tag =>
+          tag.toLowerCase().includes(searchTerm.toLowerCase()),
+        ),
+      );
     }
 
     // Filter by category
     if (selectedCategory !== 'all') {
       filtered = filtered.filter(post =>
-        post.frontmatter.category.toLowerCase() === selectedCategory.toLowerCase()
-      )
+        post.frontmatter.category.toLowerCase() === selectedCategory.toLowerCase(),
+      );
     }
 
-    return filtered
-  }, [allPosts, searchTerm, selectedCategory])
+    return filtered;
+  }, [allPosts, searchTerm, selectedCategory]);
 
   // Paginate posts
-  const totalPages = Math.ceil(filteredPosts.length / postsPerPage)
+  const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
   const paginatedPosts = filteredPosts.slice(
     (currentPage - 1) * postsPerPage,
-    currentPage * postsPerPage
-  )
+    currentPage * postsPerPage,
+  );
 
   // Reset to first page when filters change
   const handleSearch = (term) => {
-    setSearchTerm(term)
-    setCurrentPage(1)
-  }
+    setSearchTerm(term);
+    setCurrentPage(1);
+  };
 
   const handleCategoryChange = (category) => {
-    setSelectedCategory(category)
-    setCurrentPage(1)
-  }
+    setSelectedCategory(category);
+    setCurrentPage(1);
+  };
 
   return (
     <>
@@ -81,10 +82,10 @@ export default function BlogClient({ allPosts, categories }) {
               All Posts ({allPosts.length})
             </button>
             {categories.map((category) => {
-              const count = allPosts.filter(post => 
-                post.frontmatter.category.toLowerCase() === category.toLowerCase()
-              ).length
-              
+              const count = allPosts.filter(post =>
+                post.frontmatter.category.toLowerCase() === category.toLowerCase(),
+              ).length;
+
               return (
                 <button
                   key={category}
@@ -97,7 +98,7 @@ export default function BlogClient({ allPosts, categories }) {
                 >
                   {category} ({count})
                 </button>
-              )
+              );
             })}
           </div>
         </div>
@@ -107,7 +108,7 @@ export default function BlogClient({ allPosts, categories }) {
       <div className="mb-6 text-gray-600">
         {searchTerm || selectedCategory !== 'all' ? (
           <p>
-            Showing {filteredPosts.length} result{filteredPosts.length !== 1 ? 's' : ''} 
+            Showing {filteredPosts.length} result{filteredPosts.length !== 1 ? 's' : ''}
             {searchTerm && ` for "${searchTerm}"`}
             {selectedCategory !== 'all' && ` in ${selectedCategory}`}
           </p>
@@ -128,9 +129,9 @@ export default function BlogClient({ allPosts, categories }) {
           <p className="text-gray-600 text-lg mb-4">No posts found matching your criteria.</p>
           <button
             onClick={() => {
-              setSearchTerm('')
-              setSelectedCategory('all')
-              setCurrentPage(1)
+              setSearchTerm('');
+              setSelectedCategory('all');
+              setCurrentPage(1);
             }}
             className="text-blue-600 hover:text-blue-800 font-medium"
           >
@@ -149,7 +150,7 @@ export default function BlogClient({ allPosts, categories }) {
           >
             Previous
           </button>
-          
+
           {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
             <button
               key={page}
@@ -163,7 +164,7 @@ export default function BlogClient({ allPosts, categories }) {
               {page}
             </button>
           ))}
-          
+
           <button
             onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
             disabled={currentPage === totalPages}
@@ -174,5 +175,5 @@ export default function BlogClient({ allPosts, categories }) {
         </div>
       )}
     </>
-  )
+  );
 }

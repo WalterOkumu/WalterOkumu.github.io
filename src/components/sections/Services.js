@@ -12,10 +12,10 @@ export default function Services() {
         'Customer onboarding optimization',
         'Technical training & enablement',
         'Success metrics & KPI tracking',
-        'Churn reduction strategies'
+        'Churn reduction strategies',
       ],
       pricing: 'From $3,000/month',
-      popular: true
+      popular: true,
     },
     {
       icon: (
@@ -29,10 +29,10 @@ export default function Services() {
         'Next.js & React applications',
         'API development & integration',
         'Database design & optimization',
-        'Cloud deployment & scaling'
+        'Cloud deployment & scaling',
       ],
       pricing: 'From $5,000/project',
-      popular: false
+      popular: false,
     },
     {
       icon: (
@@ -46,10 +46,10 @@ export default function Services() {
         'Process automation workflows',
         'AI-powered customer support',
         'Data analysis & insights',
-        'Custom AI integrations'
+        'Custom AI integrations',
       ],
       pricing: 'From $2,500/month',
-      popular: false
+      popular: false,
     },
     {
       icon: (
@@ -63,10 +63,10 @@ export default function Services() {
         'AWS & cloud platform setup',
         'Auto-scaling configuration',
         'Performance optimization',
-        '99.9% uptime guarantee'
+        '99.9% uptime guarantee',
       ],
       pricing: 'From $4,000/project',
-      popular: false
+      popular: false,
     },
     {
       icon: (
@@ -80,10 +80,10 @@ export default function Services() {
         'Technology stack assessment',
         'Process optimization roadmap',
         'Team training & enablement',
-        'Change management support'
+        'Change management support',
       ],
       pricing: 'From $150/hour',
-      popular: false
+      popular: false,
     },
     {
       icon: (
@@ -97,39 +97,39 @@ export default function Services() {
         'Custom curriculum development',
         'Hands-on workshop sessions',
         'Best practices documentation',
-        'Ongoing mentorship support'
+        'Ongoing mentorship support',
       ],
       pricing: 'From $1,500/session',
-      popular: false
-    }
+      popular: false,
+    },
   ];
 
   const process = [
     {
       step: '01',
       title: 'Discovery & Planning',
-      description: 'We start with a comprehensive analysis of your current challenges, goals, and technical requirements.'
+      description: 'We start with a comprehensive analysis of your current challenges, goals, and technical requirements.',
     },
     {
-      step: '02', 
+      step: '02',
       title: 'Strategy & Architecture',
-      description: 'Design a tailored solution architecture that aligns with your business objectives and scales efficiently.'
+      description: 'Design a tailored solution architecture that aligns with your business objectives and scales efficiently.',
     },
     {
       step: '03',
       title: 'Implementation & Development',
-      description: 'Execute the solution with agile methodology, ensuring quality deliverables and continuous communication.'
+      description: 'Execute the solution with agile methodology, ensuring quality deliverables and continuous communication.',
     },
     {
       step: '04',
       title: 'Testing & Optimization',
-      description: 'Rigorous testing, performance optimization, and fine-tuning to ensure optimal results.'
+      description: 'Rigorous testing, performance optimization, and fine-tuning to ensure optimal results.',
     },
     {
       step: '05',
       title: 'Launch & Support',
-      description: 'Smooth deployment with comprehensive training and ongoing support to ensure long-term success.'
-    }
+      description: 'Smooth deployment with comprehensive training and ongoing support to ensure long-term success.',
+    },
   ];
 
   return (
@@ -141,7 +141,7 @@ export default function Services() {
             Services & Solutions
           </h2>
           <p className="mt-4 text-lg text-accent-700 max-w-3xl mx-auto">
-            Comprehensive technical and customer success solutions designed to drive 
+            Comprehensive technical and customer success solutions designed to drive
             growth, efficiency, and customer satisfaction
           </p>
           <div className="mt-6 w-20 h-1 bg-gradient-to-r from-primary-500 to-primary-400 rounded-full mx-auto"></div>
@@ -259,7 +259,7 @@ export default function Services() {
             Ready to Get Started?
           </h3>
           <p className="text-lg text-accent-700 mb-8 max-w-2xl mx-auto">
-            Let's discuss your project requirements and create a custom solution 
+            Let's discuss your project requirements and create a custom solution
             that drives real business results.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

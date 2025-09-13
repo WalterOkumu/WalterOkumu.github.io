@@ -1,7 +1,7 @@
 import nodemailer from 'nodemailer';
-import validator from 'validator';
-import sanitizeHtml from 'sanitize-html';
 import { RateLimiterMemory } from 'rate-limiter-flexible';
+import sanitizeHtml from 'sanitize-html';
+import validator from 'validator';
 
 // Rate limiter configuration
 const rateLimiter = new RateLimiterMemory({
@@ -35,9 +35,9 @@ const validateAndSanitizeInput = (data) => {
   } else if (data.name.trim().length > 100) {
     errors.push('Name must be less than 100 characters');
   } else {
-    sanitized.name = sanitizeHtml(data.name.trim(), { 
-      allowedTags: [], 
-      allowedAttributes: {} 
+    sanitized.name = sanitizeHtml(data.name.trim(), {
+      allowedTags: [],
+      allowedAttributes: {},
     });
   }
 
@@ -55,9 +55,9 @@ const validateAndSanitizeInput = (data) => {
     if (data.company.trim().length > 100) {
       errors.push('Company name must be less than 100 characters');
     } else {
-      sanitized.company = sanitizeHtml(data.company.trim(), { 
-        allowedTags: [], 
-        allowedAttributes: {} 
+      sanitized.company = sanitizeHtml(data.company.trim(), {
+        allowedTags: [],
+        allowedAttributes: {},
       });
     }
   } else {
@@ -72,9 +72,9 @@ const validateAndSanitizeInput = (data) => {
   } else if (data.message.trim().length > 2000) {
     errors.push('Message must be less than 2000 characters');
   } else {
-    sanitized.message = sanitizeHtml(data.message.trim(), { 
-      allowedTags: [], 
-      allowedAttributes: {} 
+    sanitized.message = sanitizeHtml(data.message.trim(), {
+      allowedTags: [],
+      allowedAttributes: {},
     });
   }
 
@@ -90,7 +90,7 @@ const validateAndSanitizeInput = (data) => {
 const createEmailTemplates = (data) => {
   const { name, email, company, message } = data;
   const companyText = company ? ` from ${company}` : '';
-  
+
   // Email to site owner
   const ownerEmail = {
     from: process.env.SMTP_USER,
@@ -136,7 +136,7 @@ Message:
 ${message}
 
 Submitted on: ${new Date().toLocaleString()}
-    `
+    `,
   };
 
   // Auto-reply email to sender
@@ -196,7 +196,7 @@ Best regards,
 Walter Okumu
 Customer Success & Technical Solutions
 hello@walterokumu.com
-    `
+    `,
   };
 
   return { ownerEmail, autoReply };
@@ -206,8 +206,8 @@ hello@walterokumu.com
 const getClientIP = (request) => {
   const forwarded = request.headers.get('x-forwarded-for');
   const realIP = request.headers.get('x-real-ip');
-  const clientIP = forwarded 
-    ? forwarded.split(',')[0].trim() 
+  const clientIP = forwarded
+    ? forwarded.split(',')[0].trim()
     : realIP || 'unknown';
   return clientIP;
 };
@@ -216,18 +216,18 @@ export async function POST(request) {
   try {
     // Get client IP for rate limiting
     const clientIP = getClientIP(request);
-    
+
     // Check rate limit
     try {
       await rateLimiter.consume(clientIP);
     } catch (rejRes) {
       return Response.json(
-        { 
-          success: false, 
+        {
+          success: false,
           error: 'Too many requests. Please try again later.',
-          retryAfter: Math.round(rejRes.msBeforeNext / 1000) || 3600
+          retryAfter: Math.round(rejRes.msBeforeNext / 1000) || 3600,
         },
-        { status: 429 }
+        { status: 429 },
       );
     }
 
@@ -235,20 +235,20 @@ export async function POST(request) {
     let body;
     try {
       body = await request.json();
-    } catch (error) {
+    } catch (_error) {
       return Response.json(
         { success: false, error: 'Invalid JSON data' },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
     // Validate and sanitize input
     const { errors, sanitized } = validateAndSanitizeInput(body);
-    
+
     if (errors.length > 0) {
       return Response.json(
         { success: false, errors },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -257,7 +257,7 @@ export async function POST(request) {
       console.error('SMTP credentials not configured');
       return Response.json(
         { success: false, error: 'Email service not configured' },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
@@ -267,11 +267,11 @@ export async function POST(request) {
     // Verify SMTP connection
     try {
       await transporter.verify();
-    } catch (error) {
-      console.error('SMTP connection failed:', error);
+    } catch (_error) {
+      console.error('SMTP connection failed:', _error);
       return Response.json(
         { success: false, error: 'Email service unavailable' },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
@@ -282,22 +282,22 @@ export async function POST(request) {
     try {
       // Send notification to site owner
       await transporter.sendMail(ownerEmail);
-      
+
       // Send auto-reply to sender
       await transporter.sendMail(autoReply);
-      
+
       console.log(`Contact form submission from ${sanitized.email} processed successfully`);
-      
+
       return Response.json({
         success: true,
-        message: 'Your message has been sent successfully! I\'ll get back to you within 24 hours.'
+        message: 'Your message has been sent successfully! I\'ll get back to you within 24 hours.',
       });
-      
-    } catch (error) {
-      console.error('Failed to send emails:', error);
+
+    } catch (_error) {
+      console.error('Failed to send emails:', _error);
       return Response.json(
         { success: false, error: 'Failed to send message. Please try again.' },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
@@ -305,7 +305,7 @@ export async function POST(request) {
     console.error('Contact form error:', error);
     return Response.json(
       { success: false, error: 'Internal server error' },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -314,20 +314,20 @@ export async function POST(request) {
 export async function GET() {
   return Response.json(
     { error: 'Method not allowed' },
-    { status: 405 }
+    { status: 405 },
   );
 }
 
 export async function PUT() {
   return Response.json(
     { error: 'Method not allowed' },
-    { status: 405 }
+    { status: 405 },
   );
 }
 
 export async function DELETE() {
   return Response.json(
     { error: 'Method not allowed' },
-    { status: 405 }
+    { status: 405 },
   );
 }

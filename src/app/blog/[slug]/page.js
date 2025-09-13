@@ -1,27 +1,28 @@
-import { notFound } from 'next/navigation'
-import Link from 'next/link'
-import Image from 'next/image'
-import { getAllBlogSlugs, getBlogBySlug, getRelatedPosts } from '@/lib/blog.server'
-import { formatDate } from '@/lib/blog-utils'
-import BlogCard from '@/components/blog/BlogCard'
+import Image from 'next/image';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
+
+import BlogCard from '@/components/blog/BlogCard';
+import { formatDate } from '@/lib/blog-utils';
+import { getAllBlogSlugs, getBlogBySlug, getRelatedPosts } from '@/lib/blog.server';
 
 export async function generateStaticParams() {
-  const slugs = getAllBlogSlugs()
-  return slugs.map(({ slug }) => ({ slug }))
+  const slugs = getAllBlogSlugs();
+  return slugs.map(({ slug }) => ({ slug }));
 }
 
 export async function generateMetadata({ params }) {
-  const post = getBlogBySlug(params.slug)
-  
+  const post = getBlogBySlug(params.slug);
+
   if (!post) {
     return {
       title: 'Post Not Found',
       description: 'This blog post could not be found.',
-    }
+    };
   }
 
-  const { frontmatter } = post
-  
+  const { frontmatter } = post;
+
   return {
     title: `${frontmatter.title} | Walter Okumu`,
     description: frontmatter.excerpt,
@@ -41,18 +42,18 @@ export async function generateMetadata({ params }) {
       description: frontmatter.excerpt,
       images: frontmatter.image ? [frontmatter.image] : [],
     },
-  }
+  };
 }
 
 export default function BlogPostPage({ params }) {
-  const post = getBlogBySlug(params.slug)
-  
+  const post = getBlogBySlug(params.slug);
+
   if (!post) {
-    notFound()
+    notFound();
   }
 
-  const { frontmatter } = post
-  const relatedPosts = getRelatedPosts(params.slug, frontmatter.category)
+  const { frontmatter } = post;
+  const relatedPosts = getRelatedPosts(params.slug, frontmatter.category);
 
   const structuredData = {
     '@context': 'https://schema.org',
@@ -75,7 +76,7 @@ export default function BlogPostPage({ params }) {
     },
     image: frontmatter.image,
     keywords: frontmatter.tags.join(', '),
-  }
+  };
 
   return (
     <>
@@ -155,10 +156,10 @@ export default function BlogPostPage({ params }) {
           <div className="prose prose-lg prose-blue max-w-none">
             <div className="text-gray-700 leading-relaxed">
               <p className="mb-6">
-                This is a preview of the blog post content. The full MDX rendering system is implemented 
+                This is a preview of the blog post content. The full MDX rendering system is implemented
                 and ready to display rich content including:
               </p>
-              
+
               <ul className="list-disc list-inside mb-6 space-y-2">
                 <li>Syntax highlighted code blocks</li>
                 <li>Interactive components</li>
@@ -167,15 +168,15 @@ export default function BlogPostPage({ params }) {
                 <li>Table of contents</li>
                 <li>Social sharing buttons</li>
               </ul>
-              
+
               <p className="mb-6">
-                The MDX content for "{frontmatter.title}" has been created with proper frontmatter, 
-                structured content, and SEO optimization. The blog post covers {frontmatter.category.toLowerCase()} 
+                The MDX content for "{frontmatter.title}" has been created with proper frontmatter,
+                structured content, and SEO optimization. The blog post covers {frontmatter.category.toLowerCase()}
                 topics including: {frontmatter.tags.join(', ')}.
               </p>
-              
+
               <p className="mb-6 text-sm text-gray-500">
-                <strong>Note:</strong> The full MDX rendering is available - this is just a preview mode. 
+                <strong>Note:</strong> The full MDX rendering is available - this is just a preview mode.
                 The actual blog posts contain detailed technical content, code examples, and interactive elements.
               </p>
             </div>
@@ -226,7 +227,7 @@ export default function BlogPostPage({ params }) {
               Stay Updated
             </h2>
             <p className="text-blue-100 text-lg mb-8">
-              Get notified when I publish new insights on technical customer success, 
+              Get notified when I publish new insights on technical customer success,
               full-stack development, and AI automation.
             </p>
             <Link
@@ -239,7 +240,7 @@ export default function BlogPostPage({ params }) {
         </section>
       </div>
     </>
-  )
+  );
 }
 
 function ShareButton({ platform, url, title }) {
@@ -247,19 +248,19 @@ function ShareButton({ platform, url, title }) {
     twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`,
     linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
     facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
-  }
+  };
 
   const icons = {
     twitter: '🐦',
     linkedin: '🔗',
     facebook: '📘',
-  }
+  };
 
   const labels = {
     twitter: 'Twitter',
     linkedin: 'LinkedIn',
     facebook: 'Facebook',
-  }
+  };
 
   return (
     <a
@@ -271,6 +272,6 @@ function ShareButton({ platform, url, title }) {
       <span>{icons[platform]}</span>
       <span>{labels[platform]}</span>
     </a>
-  )
+  );
 }
 

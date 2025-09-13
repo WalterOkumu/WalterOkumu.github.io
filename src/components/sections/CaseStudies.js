@@ -9,19 +9,19 @@ export default function CaseStudies() {
       stats: [
         { label: 'Countries', value: '7+' },
         { label: 'Businesses Listed', value: '200K+' },
-        { label: 'Uptime', value: '99.9%' }
+        { label: 'Uptime', value: '99.9%' },
       ],
       highlights: [
         'Unified multi-country digital directories platform',
         'GraphQL API architecture for efficient data fetching',
         'Automated deployment pipeline reducing deployment time by 80%',
-        'Boosted SMB discoverability across multiple markets'
+        'Boosted SMB discoverability across multiple markets',
       ],
       challenge: 'Creating a scalable directory platform that could handle diverse business listings across multiple countries with different languages, currencies, and business regulations.',
       solution: 'Built a modular Next.js application with GraphQL APIs, multi-tenant architecture, and automated CI/CD pipeline for consistent deployments across all regions.',
       results: 'Successfully onboarded 200K+ businesses with 99.9% uptime and improved search performance by 50%.',
       link: '#',
-      color: 'from-blue-600 to-blue-400'
+      color: 'from-blue-600 to-blue-400',
     },
     {
       title: 'Rhodium Digital Signage',
@@ -32,19 +32,19 @@ export default function CaseStudies() {
       stats: [
         { label: 'Deployments', value: '50+' },
         { label: 'Cost Reduction', value: '60%' },
-        { label: 'System Uptime', value: '99.8%' }
+        { label: 'System Uptime', value: '99.8%' },
       ],
       highlights: [
         'Raspberry Pi-based digital signage infrastructure',
         'Real-time content management dashboards',
         'Scalable deployment across national locations',
-        'Integration with enterprise communication systems'
+        'Integration with enterprise communication systems',
       ],
       challenge: 'Traditional static signage was inefficient and costly to update. Clients needed dynamic, centrally-managed digital displays that could be updated in real-time.',
       solution: 'Developed a Raspberry Pi-based digital signage system with Next.js dashboards for content management, enabling remote updates and monitoring.',
       results: 'Deployed to 50+ enterprise locations including regional banks, reducing hardware costs by 60% while improving content relevance and engagement.',
       link: 'https://rhodium.co.ke',
-      color: 'from-green-600 to-green-400'
+      color: 'from-green-600 to-green-400',
     },
     {
       title: 'Cura Global Recruitment',
@@ -55,19 +55,19 @@ export default function CaseStudies() {
       stats: [
         { label: 'Countries', value: '10+' },
         { label: 'Automation', value: '70%' },
-        { label: 'Faster Placements', value: '45%' }
+        { label: 'Faster Placements', value: '45%' },
       ],
       highlights: [
         'End-to-end recruitment platform for medical professionals',
         'Multi-country compliance and verification systems',
         'Automated candidate matching and screening workflows',
-        'Integration with international job boards and certification bodies'
+        'Integration with international job boards and certification bodies',
       ],
       challenge: 'Manual recruitment processes were time-consuming and error-prone, especially when dealing with international medical credential verification and compliance requirements.',
       solution: 'Built a comprehensive recruitment platform with automated workflows for candidate screening, credential verification, and compliance checking across multiple countries.',
       results: 'Reduced manual processing by 70% and accelerated candidate placements by 45%, expanding reach to multiple international markets.',
       link: '#',
-      color: 'from-purple-600 to-purple-400'
+      color: 'from-purple-600 to-purple-400',
     },
     {
       title: 'Kua Wellness Africa',
@@ -78,20 +78,20 @@ export default function CaseStudies() {
       stats: [
         { label: 'Employee Records', value: '10K+' },
         { label: 'Wellness Programs', value: '25+' },
-        { label: 'Engagement Increase', value: '65%' }
+        { label: 'Engagement Increase', value: '65%' },
       ],
       highlights: [
         'Employee wellness tracking and management system',
         'HR workflow automation and analytics dashboard',
         'Health monitoring API integrations',
-        'Comprehensive reporting and insights platform'
+        'Comprehensive reporting and insights platform',
       ],
       challenge: 'African enterprises lacked integrated systems for employee wellness tracking and HR management, leading to inefficient processes and poor employee engagement metrics.',
       solution: 'Developed an integrated wellness and HR platform with automated workflows, health monitoring integrations, and comprehensive analytics dashboards.',
       results: 'Improved employee engagement by 65% and streamlined HR processes for multiple enterprise clients across Africa.',
       link: '#',
-      color: 'from-orange-600 to-orange-400'
-    }
+      color: 'from-orange-600 to-orange-400',
+    },
   ];
 
   return (
@@ -103,7 +103,7 @@ export default function CaseStudies() {
             Case Studies
           </h2>
           <p className="mt-4 text-lg text-accent-700 max-w-3xl mx-auto">
-            Real-world solutions that drove measurable business impact across global markets, 
+            Real-world solutions that drove measurable business impact across global markets,
             from technical architecture to customer success implementation
           </p>
           <div className="mt-6 w-20 h-1 bg-gradient-to-r from-primary-500 to-primary-400 rounded-full mx-auto"></div>
@@ -155,15 +155,15 @@ export default function CaseStudies() {
                         </span>
                       ))}
                     </div>
-                    
+
                     <h3 className="text-2xl md:text-3xl font-bold text-primary-900 mb-2">
                       {study.title}
                     </h3>
-                    
+
                     <p className="text-lg font-medium text-primary-600 mb-4">
                       {study.subtitle}
                     </p>
-                    
+
                     <p className="text-lg text-accent-700 leading-relaxed">
                       {study.description}
                     </p>
@@ -206,12 +206,12 @@ export default function CaseStudies() {
                       <h5 className="font-semibold text-red-900 mb-2">Challenge</h5>
                       <p className="text-red-800 text-sm leading-relaxed">{study.challenge}</p>
                     </div>
-                    
+
                     <div className="bg-blue-50 rounded-lg p-4 border border-blue-100">
                       <h5 className="font-semibold text-blue-900 mb-2">Solution</h5>
                       <p className="text-blue-800 text-sm leading-relaxed">{study.solution}</p>
                     </div>
-                    
+
                     <div className="bg-green-50 rounded-lg p-4 border border-green-100">
                       <h5 className="font-semibold text-green-900 mb-2">Results</h5>
                       <p className="text-green-800 text-sm leading-relaxed">{study.results}</p>
@@ -221,7 +221,7 @@ export default function CaseStudies() {
                   {/* CTA */}
                   <div className="flex flex-col sm:flex-row gap-4">
                     {study.link !== '#' && (
-                      <a 
+                      <a
                         href={study.link}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -253,7 +253,7 @@ export default function CaseStudies() {
               Ready to Create Your Success Story?
             </h3>
             <p className="text-lg mb-6 text-primary-100 max-w-2xl mx-auto">
-              Let's discuss how I can help you achieve similar results for your business 
+              Let's discuss how I can help you achieve similar results for your business
               with tailored technical solutions and customer success strategies.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

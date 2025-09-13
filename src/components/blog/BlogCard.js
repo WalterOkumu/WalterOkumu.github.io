@@ -1,10 +1,11 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import { formatDate } from '@/lib/blog-utils'
+import Image from 'next/image';
+import Link from 'next/link';
+
+import { formatDate } from '@/lib/blog-utils';
 
 export default function BlogCard({ post }) {
-  const { slug, frontmatter } = post
-  
+  const { slug, frontmatter } = post;
+
   return (
     <article className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
       {frontmatter.image && (
@@ -17,7 +18,7 @@ export default function BlogCard({ post }) {
           />
         </div>
       )}
-      
+
       <div className="p-6">
         {/* Category and Reading Time */}
         <div className="flex items-center justify-between mb-3 text-sm">
@@ -26,19 +27,19 @@ export default function BlogCard({ post }) {
           </span>
           <span className="text-gray-500">{frontmatter.readingTime}</span>
         </div>
-        
+
         {/* Title */}
         <h2 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 hover:text-blue-600 transition-colors">
           <Link href={`/blog/${slug}`}>
             {frontmatter.title}
           </Link>
         </h2>
-        
+
         {/* Excerpt */}
         <p className="text-gray-600 mb-4 line-clamp-3">
           {frontmatter.excerpt}
         </p>
-        
+
         {/* Tags */}
         {frontmatter.tags && frontmatter.tags.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-4">
@@ -57,7 +58,7 @@ export default function BlogCard({ post }) {
             )}
           </div>
         )}
-        
+
         {/* Footer */}
         <div className="flex items-center justify-between pt-4 border-t border-gray-100">
           <div className="flex items-center space-x-2">
@@ -71,7 +72,7 @@ export default function BlogCard({ post }) {
               <p className="text-xs text-gray-500">{formatDate(frontmatter.date)}</p>
             </div>
           </div>
-          
+
           <Link
             href={`/blog/${slug}`}
             className="text-blue-600 hover:text-blue-800 font-medium text-sm transition-colors"
@@ -81,6 +82,6 @@ export default function BlogCard({ post }) {
         </div>
       </div>
     </article>
-  )
+  );
 }
 

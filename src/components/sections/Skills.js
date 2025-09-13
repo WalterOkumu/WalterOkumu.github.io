@@ -12,9 +12,9 @@ export default function Skills() {
         { name: 'React', level: 90 },
         { name: 'TypeScript', level: 85 },
         { name: 'Tailwind CSS', level: 92 },
-        { name: 'JavaScript', level: 88 }
+        { name: 'JavaScript', level: 88 },
       ],
-      color: 'from-blue-500 to-cyan-500'
+      color: 'from-blue-500 to-cyan-500',
     },
     {
       title: 'Backend Development',
@@ -28,9 +28,9 @@ export default function Skills() {
         { name: 'Python', level: 82 },
         { name: 'PostgreSQL', level: 85 },
         { name: 'GraphQL', level: 80 },
-        { name: 'REST APIs', level: 90 }
+        { name: 'REST APIs', level: 90 },
       ],
-      color: 'from-green-500 to-emerald-500'
+      color: 'from-green-500 to-emerald-500',
     },
     {
       title: 'Cloud & DevOps',
@@ -44,9 +44,9 @@ export default function Skills() {
         { name: 'Docker', level: 78 },
         { name: 'Vercel', level: 90 },
         { name: 'PM2', level: 85 },
-        { name: 'Ubuntu/Linux', level: 80 }
+        { name: 'Ubuntu/Linux', level: 80 },
       ],
-      color: 'from-purple-500 to-indigo-500'
+      color: 'from-purple-500 to-indigo-500',
     },
     {
       title: 'Customer Success & AI',
@@ -60,17 +60,17 @@ export default function Skills() {
         { name: 'Process Automation', level: 88 },
         { name: 'AI Integration', level: 85 },
         { name: 'Technical Training', level: 90 },
-        { name: 'Customer Onboarding', level: 94 }
+        { name: 'Customer Onboarding', level: 94 },
       ],
-      color: 'from-orange-500 to-red-500'
-    }
+      color: 'from-orange-500 to-red-500',
+    },
   ];
 
   const certifications = [
     'AWS Solutions Architect',
     'Next.js Expert',
     'Customer Success Professional',
-    'Agile Project Management'
+    'Agile Project Management',
   ];
 
   return (
@@ -82,7 +82,7 @@ export default function Skills() {
             Skills & Expertise
           </h2>
           <p className="mt-4 text-lg text-accent-700 max-w-3xl mx-auto">
-            A comprehensive skill set spanning technical development, customer success, 
+            A comprehensive skill set spanning technical development, customer success,
             and modern automation technologies
           </p>
           <div className="mt-6 w-20 h-1 bg-gradient-to-r from-primary-500 to-primary-400 rounded-full mx-auto"></div>

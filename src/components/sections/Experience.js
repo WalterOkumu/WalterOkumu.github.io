@@ -11,10 +11,10 @@ export default function Experience() {
         'Improved customer retention by 35% through strategic onboarding optimization',
         'Architected solutions serving 200K+ businesses across 7 countries',
         'Achieved 99.9% uptime across all managed client systems',
-        'Reduced customer churn by 40% through proactive success programs'
+        'Reduced customer churn by 40% through proactive success programs',
       ],
       technologies: ['Next.js', 'Node.js', 'AWS', 'PostgreSQL', 'Docker', 'Customer Success Tools'],
-      color: 'from-primary-500 to-primary-400'
+      color: 'from-primary-500 to-primary-400',
     },
     {
       period: '2021 - 2023',
@@ -27,10 +27,10 @@ export default function Experience() {
         'Built unified multi-country directory system',
         'Integrated GraphQL APIs reducing load times by 50%',
         'Implemented automated deployment reducing deployment time by 80%',
-        'Scaled platform to handle 1M+ monthly active users'
+        'Scaled platform to handle 1M+ monthly active users',
       ],
       technologies: ['React', 'Node.js', 'GraphQL', 'PostgreSQL', 'PM2', 'Ubuntu'],
-      color: 'from-blue-500 to-cyan-500'
+      color: 'from-blue-500 to-cyan-500',
     },
     {
       period: '2020 - 2021',
@@ -43,10 +43,10 @@ export default function Experience() {
         'Deployed digital signage solutions for 50+ enterprise clients',
         'Built real-time dashboard systems with 99.8% uptime',
         'Reduced hardware costs by 60% through optimized Raspberry Pi deployment',
-        'Trained technical teams across 3 countries'
+        'Trained technical teams across 3 countries',
       ],
       technologies: ['Next.js', 'Raspberry Pi', 'Python', 'React', 'Real-time APIs'],
-      color: 'from-green-500 to-emerald-500'
+      color: 'from-green-500 to-emerald-500',
     },
     {
       period: '2019 - 2020',
@@ -59,10 +59,10 @@ export default function Experience() {
         'Built end-to-end recruitment platform from scratch',
         'Implemented multi-country compliance and verification systems',
         'Automated candidate matching reducing manual work by 70%',
-        'Integrated with 5+ international job boards and APIs'
+        'Integrated with 5+ international job boards and APIs',
       ],
       technologies: ['React', 'Node.js', 'Express.js', 'MongoDB', 'API Integrations'],
-      color: 'from-purple-500 to-indigo-500'
+      color: 'from-purple-500 to-indigo-500',
     },
     {
       period: '2018 - 2019',
@@ -75,18 +75,18 @@ export default function Experience() {
         'Developed comprehensive employee wellness tracking system',
         'Built recruitment management platform with automated workflows',
         'Integrated health monitoring APIs and third-party services',
-        'Implemented data analytics dashboard for HR insights'
+        'Implemented data analytics dashboard for HR insights',
       ],
       technologies: ['JavaScript', 'PHP', 'MySQL', 'API Development', 'Data Analytics'],
-      color: 'from-orange-500 to-red-500'
-    }
+      color: 'from-orange-500 to-red-500',
+    },
   ];
 
   const stats = [
     { number: '5+', label: 'Years Experience' },
     { number: '7+', label: 'Countries Served' },
     { number: '200K+', label: 'Users Impacted' },
-    { number: '99.9%', label: 'Uptime Achieved' }
+    { number: '99.9%', label: 'Uptime Achieved' },
   ];
 
   return (
@@ -98,7 +98,7 @@ export default function Experience() {
             Professional Experience
           </h2>
           <p className="mt-4 text-lg text-accent-700 max-w-3xl mx-auto">
-            A journey through technical leadership, customer success, and global impact 
+            A journey through technical leadership, customer success, and global impact
             across diverse industries and technologies
           </p>
           <div className="mt-6 w-20 h-1 bg-gradient-to-r from-primary-500 to-primary-400 rounded-full mx-auto"></div>
@@ -144,18 +144,18 @@ export default function Experience() {
                           {exp.type}
                         </span>
                       </div>
-                      
+
                       <h3 className="text-xl font-semibold text-primary-900 mb-1">
                         {exp.role}
                       </h3>
-                      
+
                       <div className="flex items-center text-accent-600 mb-2">
                         <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                         </svg>
                         <span className="font-medium">{exp.company}</span>
                       </div>
-                      
+
                       <div className="flex items-center text-accent-600">
                         <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />

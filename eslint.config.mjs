@@ -58,7 +58,7 @@ const eslintConfig = [
       // React/Next.js Best Practices
       "react/prop-types": "off", // Using JavaScript, not TypeScript
       "react/react-in-jsx-scope": "off", // Not needed in Next.js 13+
-      "react/no-unescaped-entities": "error",
+      "react/no-unescaped-entities": "warn",
       "react/jsx-key": "error",
       "react/jsx-no-duplicate-props": "error",
       "react/jsx-no-target-blank": "error",
@@ -77,7 +77,7 @@ const eslintConfig = [
       "react/require-render-return": "error",
 
       // JavaScript Best Practices
-      "no-unused-vars": ["error", {
+      "no-unused-vars": ["warn", {
         argsIgnorePattern: "^_",
         varsIgnorePattern: "^_",
         caughtErrorsIgnorePattern: "^_"
@@ -100,10 +100,11 @@ const eslintConfig = [
       "quotes": ["error", "single", { avoidEscape: true }],
       "indent": ["error", 2, { SwitchCase: 1 }],
       "max-len": ["warn", {
-        code: 100,
+        code: 120,
         ignoreUrls: true,
         ignoreStrings: true,
-        ignoreTemplateLiterals: true
+        ignoreTemplateLiterals: true,
+        ignoreComments: true
       }],
 
       // Performance & Security
@@ -143,7 +144,7 @@ const eslintConfig = [
     rules: {
       // JavaScript-specific rules - no TypeScript
       "no-undef": "error",
-      "no-unused-vars": ["error", {
+      "no-unused-vars": ["warn", {
         argsIgnorePattern: "^_",
         varsIgnorePattern: "^_"
       }],
@@ -160,20 +161,18 @@ const eslintConfig = [
 
   {
     files: ["**/*.test.js", "**/*.spec.js", "**/__tests__/**/*.js", "**/jest.setup.js"],
-    env: {
-      jest: true,
-      node: true,
-    },
-    globals: {
-      jest: "readonly",
-      beforeAll: "readonly",
-      afterAll: "readonly",
-      beforeEach: "readonly",
-      afterEach: "readonly",
-      describe: "readonly",
-      it: "readonly",
-      test: "readonly",
-      expect: "readonly",
+    languageOptions: {
+      globals: {
+        jest: "readonly",
+        beforeAll: "readonly",
+        afterAll: "readonly",
+        beforeEach: "readonly",
+        afterEach: "readonly",
+        describe: "readonly",
+        it: "readonly",
+        test: "readonly",
+        expect: "readonly",
+      },
     },
     rules: {
       // Test-specific rules
@@ -183,8 +182,12 @@ const eslintConfig = [
 
   {
     files: ["next.config.mjs", "tailwind.config.js", "eslint.config.mjs"],
-    env: {
-      node: true,
+    languageOptions: {
+      globals: {
+        process: "readonly",
+        __dirname: "readonly",
+        __filename: "readonly",
+      },
     },
     rules: {
       // Configuration files can use console

@@ -24,7 +24,7 @@ export function formatDate(date, options = {}) {
   };
 
   return new Intl.DateTimeFormat('en-US', { ...defaultOptions, ...options }).format(
-    new Date(date)
+    new Date(date),
   );
 }
 

@@ -7,7 +7,7 @@ export default function About() {
         </svg>
       ),
       title: 'Technical Leadership',
-      description: 'Bridging complex engineering solutions with business strategy and customer needs.'
+      description: 'Bridging complex engineering solutions with business strategy and customer needs.',
     },
     {
       icon: (
@@ -16,7 +16,7 @@ export default function About() {
         </svg>
       ),
       title: 'Global Experience',
-      description: 'Successfully delivered solutions across 7+ countries with remote-first approach.'
+      description: 'Successfully delivered solutions across 7+ countries with remote-first approach.',
     },
     {
       icon: (
@@ -25,8 +25,8 @@ export default function About() {
         </svg>
       ),
       title: 'Innovation Focus',
-      description: 'Leveraging AI automation and modern tech stacks to solve complex business challenges.'
-    }
+      description: 'Leveraging AI automation and modern tech stacks to solve complex business challenges.',
+    },
   ];
 
   return (
@@ -47,24 +47,24 @@ export default function About() {
               {/* Bio */}
               <div className="prose prose-lg max-w-none">
                 <p className="text-lg text-accent-700 leading-relaxed">
-                  I'm a <strong className="text-primary-600">Technical Customer Success Architect</strong> with 
-                  a unique hybrid background that bridges engineering excellence with customer satisfaction. 
-                  My expertise lies in designing, implementing, and scaling solutions that solve complex 
+                  I'm a <strong className="text-primary-600">Technical Customer Success Architect</strong> with
+                  a unique hybrid background that bridges engineering excellence with customer satisfaction.
+                  My expertise lies in designing, implementing, and scaling solutions that solve complex
                   business challenges while ensuring seamless user adoption and satisfaction.
                 </p>
 
                 <p className="text-lg text-accent-700 leading-relaxed">
-                  With experience spanning <strong className="text-primary-600">full-stack development</strong>, 
-                  <strong className="text-primary-600"> AI automation</strong>, and 
-                  <strong className="text-primary-600"> customer success strategies</strong>, I help 
-                  global SaaS companies build products that customers love and businesses depend on. 
-                  My work has impacted over 200,000 businesses across 7+ countries, achieving 
+                  With experience spanning <strong className="text-primary-600">full-stack development</strong>,
+                  <strong className="text-primary-600"> AI automation</strong>, and
+                  <strong className="text-primary-600"> customer success strategies</strong>, I help
+                  global SaaS companies build products that customers love and businesses depend on.
+                  My work has impacted over 200,000 businesses across 7+ countries, achieving
                   industry-leading uptime of 99.9%.
                 </p>
 
                 <p className="text-lg text-accent-700 leading-relaxed">
-                  I believe in a <strong className="text-primary-600">remote-first, global approach</strong> 
-                  to problem-solving, combining technical architecture expertise with deep understanding 
+                  I believe in a <strong className="text-primary-600">remote-first, global approach</strong>
+                  to problem-solving, combining technical architecture expertise with deep understanding
                   of customer needs to deliver solutions that scale efficiently and drive real business value.
                 </p>
               </div>
@@ -98,7 +98,7 @@ export default function About() {
               <h3 className="text-xl font-semibold text-primary-900 mb-6">
                 Core Expertise
               </h3>
-              
+
               <div className="space-y-6">
                 {/* Technical Skills */}
                 <div>

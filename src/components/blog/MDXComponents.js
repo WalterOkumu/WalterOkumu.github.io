@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import Image from 'next/image'
+import Image from 'next/image';
+import Link from 'next/link';
 
 // Custom components for MDX
 const MDXComponents = {
@@ -30,9 +30,9 @@ const MDXComponents = {
     </p>
   ),
   a: ({ href, children, ...props }) => {
-    const isExternal = href?.startsWith('http')
-    const Component = isExternal ? 'a' : Link
-    
+    const isExternal = href?.startsWith('http');
+    const Component = isExternal ? 'a' : Link;
+
     return (
       <Component
         href={href}
@@ -42,7 +42,7 @@ const MDXComponents = {
       >
         {children}
       </Component>
-    )
+    );
   },
   ul: ({ children, ...props }) => (
     <ul className="list-disc list-inside mb-4 space-y-2 text-gray-700" {...props}>
@@ -65,21 +65,21 @@ const MDXComponents = {
     </blockquote>
   ),
   code: ({ children, className, ...props }) => {
-    const isInline = !className
-    
+    const isInline = !className;
+
     if (isInline) {
       return (
         <code className="bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm font-mono" {...props}>
           {children}
         </code>
-      )
+      );
     }
-    
+
     return (
       <code className={`${className} block`} {...props}>
         {children}
       </code>
-    )
+    );
   },
   pre: ({ children, ...props }) => (
     <pre className="bg-gray-900 text-gray-100 p-6 rounded-lg overflow-x-auto mb-6 text-sm" {...props}>
@@ -123,7 +123,7 @@ const MDXComponents = {
       {children}
     </td>
   ),
-  
+
   // Custom components
   Callout: ({ type = 'info', title, children }) => {
     const styles = {
@@ -131,15 +131,15 @@ const MDXComponents = {
       warning: 'border-yellow-200 bg-yellow-50 text-yellow-800',
       error: 'border-red-200 bg-red-50 text-red-800',
       success: 'border-green-200 bg-green-50 text-green-800',
-    }
-    
+    };
+
     const icons = {
       info: '💡',
       warning: '⚠️',
       error: '❌',
       success: '✅',
-    }
-    
+    };
+
     return (
       <div className={`border-l-4 p-4 my-6 rounded-r-lg ${styles[type]}`}>
         {title && (
@@ -150,9 +150,9 @@ const MDXComponents = {
         )}
         <div>{children}</div>
       </div>
-    )
+    );
   },
-  
+
   CodeBlock: ({ title, language, children }) => (
     <div className="my-6">
       {title && (
@@ -165,6 +165,6 @@ const MDXComponents = {
       </pre>
     </div>
   ),
-}
+};
 
-export default MDXComponents
+export default MDXComponents;

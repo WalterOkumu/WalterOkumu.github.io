@@ -1,9 +1,9 @@
-import { getAllBlogPosts } from '@/lib/blog.server'
+import { getAllBlogPosts } from '@/lib/blog.server';
 
 export async function GET() {
-  const posts = getAllBlogPosts()
-  const siteUrl = 'https://walterokumu.com'
-  
+  const posts = getAllBlogPosts();
+  const siteUrl = 'https://walterokumu.com';
+
   const rssXml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
@@ -37,12 +37,12 @@ ${post.frontmatter.tags.map(tag => `      <category><![CDATA[${tag}]]></category
       ]]></content:encoded>
     </item>`).join('')}
   </channel>
-</rss>`
+</rss>`;
 
   return new Response(rssXml, {
     headers: {
       'Content-Type': 'application/rss+xml; charset=utf-8',
       'Cache-Control': 'public, s-maxage=86400, stale-while-revalidate',
     },
-  })
+  });
 }

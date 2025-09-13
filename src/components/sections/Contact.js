@@ -7,7 +7,7 @@ export default function Contact() {
     name: '',
     email: '',
     company: '',
-    message: ''
+    message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -15,7 +15,7 @@ export default function Contact() {
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -41,7 +41,7 @@ export default function Contact() {
       title: 'Email',
       value: 'hello@walterokumu.com',
       link: 'mailto:hello@walterokumu.com',
-      description: 'Send me an email for project inquiries'
+      description: 'Send me an email for project inquiries',
     },
     {
       icon: (
@@ -52,7 +52,7 @@ export default function Contact() {
       title: 'LinkedIn',
       value: 'walter-okumu-oriaro',
       link: 'https://linkedin.com/in/walter-okumu-oriaro',
-      description: 'Connect with me professionally'
+      description: 'Connect with me professionally',
     },
     {
       icon: (
@@ -63,7 +63,7 @@ export default function Contact() {
       title: 'GitHub',
       value: 'WalterOkumu',
       link: 'https://github.com/WalterOkumu',
-      description: 'Check out my code repositories'
+      description: 'Check out my code repositories',
     },
     {
       icon: (
@@ -74,27 +74,27 @@ export default function Contact() {
       title: 'Schedule Call',
       value: 'Book a meeting',
       link: 'https://calendly.com/walterokumu',
-      description: 'Schedule a consultation call'
-    }
+      description: 'Schedule a consultation call',
+    },
   ];
 
   const faqs = [
     {
       question: 'What types of projects do you work on?',
-      answer: 'I specialize in technical customer success initiatives, full-stack web development, AI automation solutions, and digital transformation consulting. My focus is on helping SaaS companies improve customer satisfaction while scaling their technical infrastructure.'
+      answer: 'I specialize in technical customer success initiatives, full-stack web development, AI automation solutions, and digital transformation consulting. My focus is on helping SaaS companies improve customer satisfaction while scaling their technical infrastructure.',
     },
     {
       question: 'Do you work with clients globally?',
-      answer: 'Yes! I work with clients worldwide using a remote-first approach. I have experience serving clients across 7+ countries and am comfortable working across different time zones to ensure effective collaboration.'
+      answer: 'Yes! I work with clients worldwide using a remote-first approach. I have experience serving clients across 7+ countries and am comfortable working across different time zones to ensure effective collaboration.',
     },
     {
       question: 'What is your typical project timeline?',
-      answer: 'Project timelines vary depending on scope and complexity. Small automation projects may take 2-4 weeks, while comprehensive customer success implementations or full-stack applications typically take 2-6 months. I provide detailed timelines during our initial consultation.'
+      answer: 'Project timelines vary depending on scope and complexity. Small automation projects may take 2-4 weeks, while comprehensive customer success implementations or full-stack applications typically take 2-6 months. I provide detailed timelines during our initial consultation.',
     },
     {
       question: 'Do you provide ongoing support after project completion?',
-      answer: 'Absolutely! I offer various support packages including ongoing maintenance, training, and strategic consultation. Many of my long-term partnerships involve continuous optimization and evolution of solutions as businesses grow.'
-    }
+      answer: 'Absolutely! I offer various support packages including ongoing maintenance, training, and strategic consultation. Many of my long-term partnerships involve continuous optimization and evolution of solutions as businesses grow.',
+    },
   ];
 
   return (
@@ -106,7 +106,7 @@ export default function Contact() {
             Let's Work Together
           </h2>
           <p className="text-lg text-primary-100 max-w-3xl mx-auto">
-            Ready to transform your customer success strategy or build your next technical solution? 
+            Ready to transform your customer success strategy or build your next technical solution?
             Let's discuss how I can help drive your business forward.
           </p>
           <div className="mt-6 w-20 h-1 bg-gradient-to-r from-primary-300 to-primary-200 rounded-full mx-auto"></div>
@@ -117,7 +117,7 @@ export default function Contact() {
           <div className="lg:col-span-7">
             <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
               <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
-              
+
               {isSubmitted ? (
                 <div className="text-center py-8">
                   <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -162,7 +162,7 @@ export default function Contact() {
                       />
                     </div>
                   </div>
-                  
+
                   <div>
                     <label htmlFor="company" className="block text-sm font-medium mb-2">
                       Company/Organization
@@ -177,7 +177,7 @@ export default function Contact() {
                       placeholder="Your company name"
                     />
                   </div>
-                  
+
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium mb-2">
                       Message *
@@ -193,7 +193,7 @@ export default function Contact() {
                       placeholder="Tell me about your project, goals, and how I can help..."
                     />
                   </div>
-                  
+
                   <button
                     type="submit"
                     disabled={isSubmitting}

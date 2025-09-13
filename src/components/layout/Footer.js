@@ -56,7 +56,7 @@ export default function Footer() {
                 Okumu
               </span>
               <p className="mt-4 text-accent-100 text-base leading-6">
-                Technical Customer Success Architect bridging the gap between 
+                Technical Customer Success Architect bridging the gap between
                 engineering excellence and customer satisfaction.
               </p>
             </div>
@@ -86,8 +86,8 @@ export default function Footer() {
                 <ul className="mt-4 space-y-4">
                   {quickLinks.map((item) => (
                     <li key={item.name}>
-                      <a 
-                        href={item.href} 
+                      <a
+                        href={item.href}
                         className="text-base text-accent-100 hover:text-white transition-colors duration-200"
                       >
                         {item.name}
@@ -123,8 +123,8 @@ export default function Footer() {
                     <p className="text-base text-accent-100">
                       Ready to discuss your next project?
                     </p>
-                    <a 
-                      href="#contact" 
+                    <a
+                      href="#contact"
                       className="inline-block mt-2 text-primary-200 hover:text-white font-medium transition-colors duration-200"
                     >
                       Let's connect

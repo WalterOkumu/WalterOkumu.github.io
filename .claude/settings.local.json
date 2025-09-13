@@ -9,7 +9,9 @@
       "Bash(node:*)",
       "Read(/C:\\Users\\okumu\\GitHub\\personal_apps/**)",
       "Bash(cat:*)",
-      "Bash(sed:*)"
+      "Bash(sed:*)",
+      "Bash(npm run lint:*)",
+      "Bash(npm audit:*)"
     ],
     "deny": [],
     "ask": [],
