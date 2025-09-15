@@ -31,7 +31,7 @@ export default function About() {
 
   return (
     <section id="about" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-6">
         <div className="lg:grid lg:grid-cols-12 lg:gap-12 lg:items-start">
           {/* Content */}
           <div className="lg:col-span-7">
@@ -46,14 +46,14 @@ export default function About() {
 
               {/* Bio */}
               <div className="prose prose-lg max-w-none">
-                <p className="text-lg text-accent-700 leading-relaxed">
+                <p className="text-lg text-gray-700 leading-relaxed">
                   I'm a <strong className="text-primary-600">Technical Customer Success Architect</strong> with
                   a unique hybrid background that bridges engineering excellence with customer satisfaction.
                   My expertise lies in designing, implementing, and scaling solutions that solve complex
                   business challenges while ensuring seamless user adoption and satisfaction.
                 </p>
 
-                <p className="text-lg text-accent-700 leading-relaxed">
+                <p className="text-lg text-gray-700 leading-relaxed">
                   With experience spanning <strong className="text-primary-600">full-stack development</strong>,
                   <strong className="text-primary-600"> AI automation</strong>, and
                   <strong className="text-primary-600"> customer success strategies</strong>, I help
@@ -62,7 +62,7 @@ export default function About() {
                   industry-leading uptime of 99.9%.
                 </p>
 
-                <p className="text-lg text-accent-700 leading-relaxed">
+                <p className="text-lg text-gray-700 leading-relaxed">
                   I believe in a <strong className="text-primary-600">remote-first, global approach</strong>
                   to problem-solving, combining technical architecture expertise with deep understanding
                   of customer needs to deliver solutions that scale efficiently and drive real business value.

@@ -2,17 +2,11 @@ export default function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center pt-16 pb-16 bg-gradient-to-br from-accent-50 to-primary-50">
       {/* Background Pattern */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-50/30 to-accent-50/30" />
-        <div
-          className="absolute inset-y-0 right-0 w-1/2 transform translate-x-1/2"
-          style={{
-            background: 'linear-gradient(135deg, rgba(47, 94, 145, 0.05) 0%, rgba(47, 94, 145, 0.02) 100%)',
-          }}
-        />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center lg:text-left lg:grid lg:grid-cols-12 lg:gap-8 lg:items-center">
           {/* Hero Content */}
           <div className="lg:col-span-7">

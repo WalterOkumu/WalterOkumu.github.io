@@ -100,19 +100,17 @@ describe('BlogCard Component', () => {
       expect(readingTime).toHaveClass('text-gray-500');
     });
 
-    it('should render title as link', () => {
+    it('should have a link to the blog post', () => {
       render(<BlogCard post={mockPost} />);
-
-      const titleLink = screen.getByRole('link', { name: 'Test Blog Post Title' });
-      expect(titleLink).toHaveAttribute('href', '/blog/test-blog-post');
-      expect(titleLink).toHaveClass('hover:text-blue-600');
+      const link = screen.getByRole('link', { name: /test blog post title/i });
+      expect(link).toHaveAttribute('href', '/blog/test-blog-post');
     });
 
     it('should render excerpt with proper styling', () => {
       render(<BlogCard post={mockPost} />);
 
       const excerpt = screen.getByText(/This is a test excerpt/);
-      expect(excerpt).toHaveClass('text-gray-600', 'mb-4', 'line-clamp-3');
+      expect(excerpt).toHaveClass('text-gray-700', 'mb-4', 'line-clamp-3');
     });
   });
 
@@ -312,7 +310,7 @@ describe('BlogCard Component', () => {
     it('should have footer with border separator', () => {
       render(<BlogCard post={mockPost} />);
 
-      const footer = screen.getByText('Read more').closest('.flex.items-center.justify-between');
+      const footer = document.querySelector('.flex.items-center.justify-between');
       expect(footer).toHaveClass('pt-4', 'border-t', 'border-gray-100');
     });
 
@@ -348,14 +346,10 @@ describe('BlogCard Component', () => {
       expect(image).toBeInTheDocument();
     });
 
-    it('should have accessible links', () => {
+    it('should have accessible link to the post', () => {
       render(<BlogCard post={mockPost} />);
-
-      const titleLink = screen.getByRole('link', { name: 'Test Blog Post Title' });
+      const titleLink = screen.getByRole('link', { name: /test blog post title/i });
       expect(titleLink).toHaveAttribute('href');
-
-      const readMoreLink = screen.getByRole('link', { name: 'Read more' });
-      expect(readMoreLink).toHaveAttribute('href');
     });
 
     it('should have proper color contrast for text elements', () => {
@@ -444,8 +438,8 @@ describe('BlogCard Component', () => {
 
       render(<BlogCard post={postWithEmptySlug} />);
 
-      const titleLink = screen.getByRole('link', { name: 'Test Blog Post Title' });
-      expect(titleLink).toHaveAttribute('href', '/blog/');
+      const cardLink = screen.getByRole('link');
+      expect(cardLink).toHaveAttribute('href', '/blog/');
     });
   });
 

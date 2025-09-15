@@ -27,7 +27,11 @@
     "sitemap": "next-sitemap",
     "format": "prettier --write \"**/*.{js,jsx,json,css,md}\"",
     "format:check": "prettier --check \"**/*.{js,jsx,json,css,md}\"",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "audit:visual": "node scripts/visual-audit.mjs",
+    "dev:watchdog": "node scripts/kill-on-idle.mjs --idle 1200000 -- npx next dev --turbopack",
+    "build:watchdog": "node scripts/kill-on-idle.mjs --idle 1200000 -- npm run build",
+    "audit:visual:watchdog": "node scripts/kill-on-idle.mjs --idle 1200000 -- node scripts/visual-audit.mjs"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",

@@ -134,7 +134,7 @@ export default function Services() {
 
   return (
     <section id="services" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-primary-900 leading-tight">
@@ -148,11 +148,11 @@ export default function Services() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20">
           {services.map((service, index) => (
             <div
               key={index}
-              className={`relative bg-white rounded-2xl p-8 border-2 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ${
+              className={`relative bg-white rounded-2xl p-8 border transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ${
                 service.popular
                   ? 'border-primary-500 shadow-brand'
                   : 'border-accent-200 hover:border-primary-300'
@@ -190,10 +190,10 @@ export default function Services() {
                       <svg className="w-5 h-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
-                      <span className="text-sm text-accent-700">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                      <span className="text-sm text-gray-700">{feature}</span>
+                  </li>
+                ))}
+              </ul>
 
                 {/* Pricing */}
                 <div className="pt-4 border-t border-accent-100">

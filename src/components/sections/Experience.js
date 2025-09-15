@@ -91,7 +91,7 @@ export default function Experience() {
 
   return (
     <section id="experience" className="py-20 bg-gradient-to-br from-accent-50 to-primary-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-primary-900 leading-tight">
@@ -105,7 +105,7 @@ export default function Experience() {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
           {stats.map((stat, index) => (
             <div key={index} className="text-center bg-white rounded-xl p-6 shadow-brand border border-accent-100">
               <div className="text-2xl md:text-3xl font-bold text-primary-600 mb-1">

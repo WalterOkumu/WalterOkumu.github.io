@@ -248,6 +248,17 @@ These rules apply to all agents (A0–A18) and any temporary agents created for 
 - **Content Security Policy**: Implement CSP headers to prevent XSS attacks.
 - **Dependency Security**: Regular security audits of dependencies with automated vulnerability scanning.
 
+### 12.6 Execution Watchdog & Timeouts (All Agents)
+- Idle timeout rule: Wrap long-running tasks with a watchdog that terminates the process if no output/progress occurs for 20 minutes and posts a status update with logs and next steps.
+- Defaults: idle timeout 20 minutes (1,200,000 ms), max runtime 60 minutes (overridable per task).
+- Standard tooling:
+  - `scripts/kill-on-idle.mjs` — generic watchdog to run any command with idle/max timers and process-tree termination.
+  - Package scripts:
+    - `npm run dev:watchdog`
+    - `npm run build:watchdog`
+    - `npm run audit:visual:watchdog`
+- On termination, the watchdog writes a log under `logs/watchdog-*.log` and the owning agent must notify the PM immediately.
+
 ---
 
 ## 13. Project Execution Framework

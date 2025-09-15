@@ -1,4 +1,6 @@
 import { Inter, Poppins, Roboto, Fira_Code } from 'next/font/google';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 
 import './globals.css';
 
@@ -33,6 +35,7 @@ const firaCode = Fira_Code({
 
 // Enhanced SEO metadata
 export const metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://walterokumu.com'),
   title: {
     default: 'Walter Okumu Oriaro - Technical Customer Success Architect & Full-Stack Engineer',
     template: '%s | Walter Okumu Oriaro',
@@ -82,12 +85,13 @@ export const metadata = {
   // Twitter Card
   twitter: {
     card: 'summary_large_image',
+    site: '@walterokumu',
+    creator: '@walterokumu',
     title: 'Walter Okumu Oriaro - Technical Customer Success Architect',
     description:
       'Bridging technical architecture and customer success. Expert in Next.js, Node.js, ' +
       'AI automation, and global SaaS solutions.',
-    images: ['/twitter-image.jpg'],
-    creator: '@your-handle',
+    images: ['/og-image.jpg'],
   },
 
   // Additional metadata
@@ -102,187 +106,146 @@ export const metadata = {
       'max-snippet': -1,
     },
   },
-
-  // Verification
   verification: {
-    google: 'your-google-verification-code',
-    yandex: 'your-yandex-verification-code',
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+    yandex: process.env.YANDEX_VERIFICATION,
+    yahoo: process.env.YAHOO_VERIFICATION,
   },
-
-  // App configurations
-  manifest: '/manifest.json',
-
-  // Alternate languages (if needed in future)
   alternates: {
     canonical: process.env.NEXT_PUBLIC_SITE_URL || 'https://walterokumu.com',
+    types: {
+      'application/rss+xml': [
+        {
+          url: '/rss',
+          title: 'Walter Okumu Oriaro - Blog RSS Feed',
+        },
+      ],
+    },
   },
-
-  // Other metadata
   other: {
-    'theme-color': '#2f5e91',
-    'color-scheme': 'light dark',
-    'format-detection': 'telephone=no',
+    'msapplication-TileColor': '#2F5E91',
+    'theme-color': '#2F5E91',
   },
 };
 
-// Viewport configuration
-export const viewport = {
-  width: 'device-width',
-  initialScale: 1,
-  maximumScale: 5,
-  userScalable: true,
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#0a0a0a' },
+// JSON-LD structured data
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Walter Okumu Oriaro',
+  jobTitle: 'Technical Customer Success Architect & Full-Stack Engineer',
+  description:
+    'Technical Customer Success Architect and Full-Stack Engineer bridging the gap between ' +
+    'technical architecture and customer success.',
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://walterokumu.com',
+  image: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://walterokumu.com'}/og-image.jpg`,
+  sameAs: [
+    'https://linkedin.com/in/walterokumu',
+    'https://github.com/walterokumu',
+    'https://twitter.com/walterokumu',
   ],
+  knowsAbout: [
+    'Technical Customer Success',
+    'Full-Stack Development',
+    'Next.js',
+    'Node.js',
+    'AI Automation',
+    'SaaS Solutions',
+    'Customer Success Engineering',
+  ],
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Freelance',
+  },
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'KE',
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html
-      lang='en'
-      className={`${inter.variable} ${poppins.variable} ${roboto.variable} ${firaCode.variable}`}
-      suppressHydrationWarning
-    >
+    <html lang="en" className={`${inter.variable} ${poppins.variable} ${roboto.variable} ${firaCode.variable}`}>
       <head>
         {/* Preconnect to external domains for performance */}
-        <link rel='preconnect' href='https://fonts.googleapis.com' />
-        <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
-        <link rel='preconnect' href='https://www.google-analytics.com' />
-        <link rel='preconnect' href='https://mc.yandex.ru' />
-        <link rel='preconnect' href='https://www.clarity.ms' />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://mc.yandex.ru" />
+        <link rel="preconnect" href="https://clarity.microsoft.com" />
 
-        {/* DNS prefetch for external resources */}
-        <link rel='dns-prefetch' href='https://calendly.com' />
-        <link rel='dns-prefetch' href='https://github.com' />
-        <link rel='dns-prefetch' href='https://linkedin.com' />
-
-        {/* Structured Data - Organization */}
+        {/* JSON-LD structured data */}
         <script
-          type='application/ld+json'
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Person',
-              name: 'Walter Okumu Oriaro',
-              jobTitle: 'Technical Customer Success Architect & Full-Stack Engineer',
-              url: process.env.NEXT_PUBLIC_SITE_URL || 'https://walterokumu.com',
-              sameAs: [
-                process.env.NEXT_PUBLIC_LINKEDIN_URL,
-                process.env.NEXT_PUBLIC_GITHUB_URL,
-                process.env.NEXT_PUBLIC_TWITTER_URL,
-              ].filter(Boolean),
-              image: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://walterokumu.com'}/profile-image.jpg`,
-              description:
-                'Technical Customer Success Architect and Full-Stack Engineer with expertise in ' +
-                'bridging technical solutions and customer success outcomes.',
-              knowsAbout: [
-                'Technical Customer Success',
-                'Full-Stack Development',
-                'Next.js',
-                'React',
-                'Node.js',
-                'JavaScript',
-                'AI Automation',
-                'SaaS Solutions',
-                'Customer Success Engineering',
-              ],
-              alumniOf: {
-                '@type': 'Organization',
-                name: 'Your University/Institution',
-              },
-              worksFor: {
-                '@type': 'Organization',
-                name: 'Freelance/Consultant',
-                description: 'Independent Technical Customer Success Architect',
-              },
-            }),
-          }}
-        />
-      </head>
-      <body className='min-h-screen font-serif antialiased'>
-        {/* Skip to main content for accessibility */}
-        <a
-          href='#main-content'
-          className='skip-link sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-500 focus:text-white focus:rounded focus:shadow-lg'
-        >
-          Skip to main content
-        </a>
-
-        {/* Main application content */}
-        <div id='main-content' className='relative'>
-          {children}
-        </div>
-
-        {/* Accessibility enhancements */}
-        <div
-          id='aria-live-region'
-          aria-live='polite'
-          aria-atomic='true'
-          className='sr-only'
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
 
-        {/* Analytics scripts will be added here */}
-        {process.env.NODE_ENV === 'production' && (
+        {/* Google Analytics 4 */}
+        {process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID && (
           <>
-            {/* Google Analytics */}
-            {process.env.NEXT_PUBLIC_GA_ID && (
-              <>
-                <script
-                  async
-                  src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
-                />
-                <script
-                  dangerouslySetInnerHTML={{
-                    __html: `
-                      window.dataLayer = window.dataLayer || [];
-                      function gtag(){dataLayer.push(arguments);}
-                      gtag('js', new Date());
-                      gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
-                        page_title: document.title,
-                        page_location: window.location.href,
-                      });
-                    `,
-                  }}
-                />
-              </>
-            )}
-
-            {/* Yandex Metrica */}
-            {process.env.NEXT_PUBLIC_YANDEX_METRICA_ID && (
-              <script
-                dangerouslySetInnerHTML={{
-                  __html: `
-                    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-                    m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-                    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-                    ym(${process.env.NEXT_PUBLIC_YANDEX_METRICA_ID}, "init", {
-                      clickmap:true,
-                      trackLinks:true,
-                      accurateTrackBounce:true,
-                      webvisor:true
-                    });
-                  `,
-                }}
-              />
-            )}
-
-            {/* Microsoft Clarity */}
-            {process.env.NEXT_PUBLIC_CLARITY_ID && (
-              <script
-                dangerouslySetInnerHTML={{
-                  __html: `
-                    (function(c,l,a,r,i,t,y){
-                      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-                    })(window, document, "clarity", "script", "${process.env.NEXT_PUBLIC_CLARITY_ID}");
-                  `,
-                }}
-              />
-            )}
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID}`}
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID}', {
+                    page_title: document.title,
+                    page_location: window.location.href,
+                  });
+                `,
+              }}
+            />
           </>
         )}
+
+        {/* Yandex Metrica */}
+        {process.env.NEXT_PUBLIC_YANDEX_METRICA_ID && (
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+                m[i].l=1*new Date();
+                for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+                k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+                (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+                ym(${process.env.NEXT_PUBLIC_YANDEX_METRICA_ID}, "init", {
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+              `,
+            }}
+          />
+        )}
+
+        {/* Microsoft Clarity */}
+        {process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID && (
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                (function(c,l,a,r,i,t,y){
+                    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                })(window, document, "clarity", "script", "${process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID}");
+              `,
+            }}
+          />
+        )}
+      </head>
+      <body className="min-h-screen bg-white text-gray-900 antialiased">
+        <Header />
+        <main id="main-content" className="pt-16">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

@@ -75,7 +75,7 @@ export default function Skills() {
 
   return (
     <section id="skills" className="py-20 bg-gradient-to-br from-accent-50 to-primary-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-primary-900 leading-tight">
@@ -89,7 +89,7 @@ export default function Skills() {
         </div>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16">
           {skillCategories.map((category, categoryIndex) => (
             <div key={categoryIndex} className="bg-white rounded-2xl p-8 shadow-brand border border-accent-100">
               {/* Category Header */}
@@ -128,7 +128,7 @@ export default function Skills() {
         </div>
 
         {/* Additional Info Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           {/* Certifications */}
           <div className="bg-white rounded-2xl p-6 shadow-brand border border-accent-100">
             <h4 className="text-lg font-semibold text-primary-900 mb-4">

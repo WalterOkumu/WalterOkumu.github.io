@@ -1,5 +1,3 @@
-import Footer from '@/components/layout/Footer';
-import Header from '@/components/layout/Header';
 import About from '@/components/sections/About';
 import CaseStudies from '@/components/sections/CaseStudies';
 import Contact from '@/components/sections/Contact';
@@ -11,7 +9,6 @@ import Skills from '@/components/sections/Skills';
 export default function HomePage() {
   return (
     <>
-      <Header />
       <main className="min-h-screen">
         <Hero />
         <About />
@@ -21,7 +18,6 @@ export default function HomePage() {
         <CaseStudies />
         <Contact />
       </main>
-      <Footer />
     </>
   );
 }

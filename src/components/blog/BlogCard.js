@@ -7,7 +7,13 @@ export default function BlogCard({ post }) {
   const { slug, frontmatter } = post;
 
   return (
-    <article className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+    <article className="relative bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden group" role="article">
+      {/* Full-card clickable overlay for better UX */}
+      <Link
+        href={`/blog/${slug}`}
+        aria-label={`Read "${frontmatter.title}"`}
+        className="absolute inset-0 z-10"
+      />
       {frontmatter.image && (
         <div className="aspect-video relative">
           <Image
@@ -25,18 +31,16 @@ export default function BlogCard({ post }) {
           <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-medium">
             {frontmatter.category}
           </span>
-          <span className="text-gray-500">{frontmatter.readingTime}</span>
+          <span className="text-gray-600">{frontmatter.readingTime}</span>
         </div>
 
         {/* Title */}
-        <h2 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 hover:text-blue-600 transition-colors">
-          <Link href={`/blog/${slug}`}>
-            {frontmatter.title}
-          </Link>
+        <h2 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">
+          {frontmatter.title}
         </h2>
 
         {/* Excerpt */}
-        <p className="text-gray-600 mb-4 line-clamp-3">
+        <p className="text-gray-700 mb-4 line-clamp-3">
           {frontmatter.excerpt}
         </p>
 
@@ -73,15 +77,11 @@ export default function BlogCard({ post }) {
             </div>
           </div>
 
-          <Link
-            href={`/blog/${slug}`}
-            className="text-blue-600 hover:text-blue-800 font-medium text-sm transition-colors"
-          >
+          <span className="text-blue-600 group-hover:text-blue-800 font-medium text-sm transition-colors">
             Read more
-          </Link>
+          </span>
         </div>
       </div>
     </article>
   );
 }
-
